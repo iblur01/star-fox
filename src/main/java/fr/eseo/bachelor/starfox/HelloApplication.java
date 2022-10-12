@@ -1,5 +1,6 @@
 package fr.eseo.bachelor.starfox;
 
+import fr.eseo.bachelor.starfox.cases.Cases;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
