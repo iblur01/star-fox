@@ -1,4 +1,11 @@
 package fr.eseo.bachelor.starfox.cases;
 
-public class Cases {
+abstract class Cases {
+
+    protected int emplacement;
+
+
+    public void refresh() {
+
+    }
 }
