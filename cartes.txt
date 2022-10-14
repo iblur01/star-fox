@@ -1,26 +1,37 @@
 Lés différentes carte
 
 Chance :
-     1. Afterwork à l'eseo
-     2. Avancer à la case départ
-     3. Va chercher du lait au carrefour grand Maine
-     4. Soirée à la chapelle
-     5. Le distributeur est bloqué, paye 10€
-     6. RDV Maestro
-     7. Tu gagnes ta place au WEI
-     8. T'as trouvé un billet de 50 €
-     9. // Liberé de polytech //
-     10. Recule de 3 cases
-     11. Va à polytech
-     12. EDF veut ta peau, paye 50€ par maison et 110€ par hotels.
-     13. T'as doublé au RU, paye 40€
-     14. Paye les frais d'ESEO 50€
-     15. Sortie de bar douleureuse, amende de 40€
-     16. Gagne 150€
+     1. Afterwork à l'eseo.
+     2. Avancer à la case départ.
+     3. Alles chercher du lait au carrefour grand Maine. Si vous passez par la case départ, recevez 200€.
+     4. Soirée à la chapelle. Si vous passez par la case départ, recevez 200€.
+     5. Le prix de l'éléctricité augemente, payez 40€ par maison et 115€ par hôtel.
+     6. Avancez jusqu’au bar du Maestro. Si vous passez par la case départ, recevez 200€.
+     7. Vous gagnez votre place au WEI, recevez 100€.
+     8. La chance ! Vous trouvez un billet de 50€ par terre.
+     9. Vous êtes libéré de Polytech. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée ou vendue.
+     10. Recule de 3 cases.
+     11. Va à polytech. Ne passez pas par la case départ, ne touchez pas 200€.
+     12. EDF veut votre peau, payez 50€ par maison et 110€ par hotels.
+     13. Le distributeur est bloqué, payez 40€.
+     14. Payez les frais d'ESEO 50€.
+     15. Sortie de bar douleureuse, amende de 40€.
+     16. Vous refusez un jeudi au bar, recevez 150€.
 
 Carte communauté
-    1. Avancer à la case départ
-    2. Erreur du Crous tu gagnes 200€
-    3. Depistage complet paye 50€
-    4. T'as volé la cafet gagne 50€
-    5.
+    1. Avancer à la case départ.
+    2. Erreur du Crous, recevez 200€.
+    3. Depistage complet, paye 50€.
+    4. Erreur à la cafet, reçoit 50€.
+    5. Vous êtes libéré de Polytech. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée ou vendue.
+    6. Direction Polytech. Ne passez pas par la case départ, ne touchez pas 200€.
+    7. Retournez au Tacos.
+    8. Le crous vous paye enfin, recevez 100€.
+    9. C’est votre anniversaire. Chaque joueur doit vous donner 10€.
+    10. Merci la CAF, recevez 20€.
+    11. Votre ami vous rembourse enfin, recevez 25€.
+    12. Achat d'une nouvelle calculatrice collège, payez 50€.
+    13. Tu payes une tournée generale, payez 20€ à chaque joueur.
+    14. Rendez-vous au bar le plus proche. Si vous passez par la case départ, recevez 200€.
+    15. Vous gagnez le deuxième prix du concours de photo de l'eseo, recevez 10€.
+    16. Vous recevez la prime Macron, touchez 100€.
