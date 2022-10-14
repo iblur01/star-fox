@@ -8,4 +8,5 @@ abstract class Cases {
     public void refresh() {
 
     }
+    
 }
