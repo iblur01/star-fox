@@ -10,7 +10,7 @@ public class Commu_Popup {
     public void afficher_popup(int nb_carte){
         this.generation_cartes();
         Alert popup = new Alert(Alert.AlertType.WARNING);
-        popup.setTitle("Warning");
+        popup.setTitle("COMMUNAUTE");
         popup.setHeaderText(null);
         popup.setContentText(this.carte_commu.get(nb_carte));
         popup.showAndWait();

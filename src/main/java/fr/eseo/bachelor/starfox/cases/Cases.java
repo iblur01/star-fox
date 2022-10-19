@@ -5,6 +5,8 @@ abstract class Cases {
     protected int emplacement;
 
 
+
+
     public void refresh() {
 
     }

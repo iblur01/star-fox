@@ -7,4 +7,5 @@ abstract class Terrains extends Cases{
     protected int val_vente;
 
 
+
 }
