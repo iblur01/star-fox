@@ -7,5 +7,10 @@ abstract class Terrains extends Cases{
     protected int val_vente;
 
 
-
+    //Constructeur
+    public Terrains(){}
+    public Terrains(int emplacement, String name){
+        super(emplacement, name);
+    }
+    //
 }
