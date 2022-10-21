@@ -31,7 +31,7 @@ public class Terrain_Popup {
 
         if (emplacement == 12 || emplacement == 28)
         {
-            Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
+            Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog",ButtonType.OK);
             popup.setTitle(this.carte_terrain.get(emplacement));
             popup.setHeaderText("" +
                     "                            Relancez les dès : \n\n" +
@@ -42,8 +42,8 @@ public class Terrain_Popup {
                     "                     cartes compagnies, le loyer \n" +
                     "                    est 10 fois le montant indiqué\n" +
                     "                                par les dès.\n \n" +
-                    "                        Valeur Hypothécaire\n" +
-                    "                                  € 75");
+                    "                           Valeur Hypothécaire\n" +
+                    "                                     € 75");
             popup.setContentText("");
             popup.showAndWait();
         }
@@ -80,14 +80,14 @@ public class Terrain_Popup {
             popup.setTitle(this.carte_terrain.get(emplacement));
             popup.setHeaderText("" +
                     "                          Valeur d'achat : "+ this.prix_terrain.get(emplacement) +"€\n\n" +
-                    "                                                                     €\n" +
-                    "           LOYER       Terrain nu             "+this.loyer_terrain.get(emplacement)+"\n " +
+                    "                                                         €\n" +
+                    "         LOYER         Terrain nu            "+this.loyer_terrain.get(emplacement)+"\n " +
                     "                            Avec 1 maison     "+this.maison1_terrain.get(emplacement)+" \n " +
                     "                            Avec 2 maison     "+this.maison2_terrain.get(emplacement)+" \n " +
                     "                            Avec 3 maison     "+this.maison3_terrain.get(emplacement)+" \n " +
                     "                            Avec 4 maison     "+this.maison4_terrain.get(emplacement)+" \n " +
-                    "                            Avec HÔTEL        "+this.hotel_terrain.get(emplacement)+" \n " +
-                    "                                   Valer Hypothécaire\n" +
+                    "                            Avec HÔTEL         "+this.hotel_terrain.get(emplacement)+" \n\n " +
+                    "                           Valeur Hypothécaire\n" +
                     "                                       € "+this.hypotheque_terrain.get(emplacement)+"");
             popup.setContentText("");
             popup.showAndWait();
