@@ -376,45 +376,45 @@ public class Terrain_Popup {
     private void generation_maison4(){
 
         maison4_terrain.add("");
-        maison4_terrain.add("250");
+        maison4_terrain.add("160");
         maison4_terrain.add("");
+        maison4_terrain.add("320");
+        maison4_terrain.add("");
+        maison4_terrain.add("");
+        maison4_terrain.add("400");
+        maison4_terrain.add("");
+        maison4_terrain.add("400");
         maison4_terrain.add("450");
         maison4_terrain.add("");
+        maison4_terrain.add("625");
         maison4_terrain.add("");
-        maison4_terrain.add("550");
+        maison4_terrain.add("625");
+        maison4_terrain.add("700");
         maison4_terrain.add("");
-        maison4_terrain.add("550");
-        maison4_terrain.add("600");
+        maison4_terrain.add("700");
         maison4_terrain.add("");
-        maison4_terrain.add("750");
+        maison4_terrain.add("700");
+        maison4_terrain.add("800");
         maison4_terrain.add("");
-        maison4_terrain.add("750");
-        maison4_terrain.add("900");
+        maison4_terrain.add("875");
         maison4_terrain.add("");
-        maison4_terrain.add("900");
+        maison4_terrain.add("875");
+        maison4_terrain.add("925");
         maison4_terrain.add("");
-        maison4_terrain.add("950");
-        maison4_terrain.add("1000");
+        maison4_terrain.add("975");
+        maison4_terrain.add("975");
         maison4_terrain.add("");
-        maison4_terrain.add("1050");
+        maison4_terrain.add("1025");
         maison4_terrain.add("");
-        maison4_terrain.add("1050");
         maison4_terrain.add("1100");
-        maison4_terrain.add("");
-        maison4_terrain.add("1150");
-        maison4_terrain.add("1150");
+        maison4_terrain.add("1100");
         maison4_terrain.add("");
         maison4_terrain.add("1200");
         maison4_terrain.add("");
-        maison4_terrain.add("1275");
-        maison4_terrain.add("1275");
         maison4_terrain.add("");
-        maison4_terrain.add("1400");
+        maison4_terrain.add("1300");
         maison4_terrain.add("");
-        maison4_terrain.add("");
-        maison4_terrain.add("1500");
-        maison4_terrain.add("");
-        maison4_terrain.add("2000");
+        maison4_terrain.add("1700");
 
 
 
