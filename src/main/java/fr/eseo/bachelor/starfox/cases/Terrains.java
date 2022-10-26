@@ -5,7 +5,7 @@ abstract public class Terrains extends Cases{
     protected int proprietaire;
     protected int val_achat;
     protected int val_vente;
-    protected boolean enable = true;
+    protected boolean enable_terrain = true;
 
 
     //Constructeur
@@ -24,11 +24,11 @@ abstract public class Terrains extends Cases{
         return proprietaire;
     }
 
-    public void setEnable(boolean enable) {
-        this.enable = enable;
+    public void setEnableTerrain(boolean enable) {
+        this.enable_terrain = enable;
     }
 
-    public boolean getEnable(){
-        return enable;
+    public boolean getEnableTerrain(){
+        return enable_terrain;
     }
 }

@@ -13,7 +13,7 @@ public class Rues extends Terrains {
     public Rues(int emplacement, String name) {
         super(emplacement, name);
         setLoyer(emplacement);
-        this.maison = 0;
+        setMaison(0);
     }
 
     public void setLoyer(int emplacement) {
@@ -36,7 +36,7 @@ public class Rues extends Terrains {
     }
 
     public void setMaison(int maison){
-        if (maison >= 1 & maison <= 5 ) this.maison = maison;
+        if (maison >= 0 & maison <= 5 ) this.maison = maison;
     }
 
     public int getMaison(){

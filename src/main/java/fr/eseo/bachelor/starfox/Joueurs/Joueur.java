@@ -84,11 +84,12 @@ public class Joueur {
 
     //Action du joueur
     public void acheter (Rues rue){
-        list_rues_j.add(rue);
-        compte.retirer_argent(rue.getLoyer());
-        rue.setProprietaire(num_joueur);
-        rue.setEnable(false);
-        //test de commit
+        if (rue.getEnableTerrain() == true) {
+            list_rues_j.add(rue);
+            compte.retirer_argent(rue.getLoyer());
+            rue.setProprietaire(num_joueur);
+            rue.setEnableTerrain(false);
+        }
     }
 
     public void acheter(Gares gare){
