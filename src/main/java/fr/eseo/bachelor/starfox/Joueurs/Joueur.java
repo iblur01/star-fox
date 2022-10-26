@@ -88,6 +88,7 @@ public class Joueur {
         compte.retirer_argent(rue.getLoyer());
         rue.setProprietaire(num_joueur);
         rue.setEnable(false);
+        //test de commit
     }
 
     public void acheter(Gares gare){
