@@ -86,6 +86,8 @@ public class Joueur {
     public void acheter (Rues rue){
         list_rues_j.add(rue);
         compte.retirer_argent(rue.getLoyer());
+        rue.setProprietaire(num_joueur);
+        rue.setEnable(false);
     }
 
     public void acheter(Gares gare){
@@ -109,8 +111,9 @@ public class Joueur {
         return num;
     }
 
-    public void avancer(int de){
+    public int avancer(int de){
         position_joeur = position_joeur + de ;
+        return position_joeur;
     }
 
     public void getArgent(){

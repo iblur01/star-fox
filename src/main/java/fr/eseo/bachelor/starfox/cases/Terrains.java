@@ -24,6 +24,10 @@ abstract public class Terrains extends Cases{
         return proprietaire;
     }
 
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+
     public boolean getEnable(){
         return enable;
     }
