@@ -11,9 +11,9 @@ import java.util.Random;
 public class Joueur {
     private String name_j;
     private int color;
-    protected int position;
+    protected int position_joeur;
     private Label label;
-    private int num;
+    private int num_joueur;
     private ArrayList<Rues> list_rues_j = new ArrayList<>();
     private ArrayList<Gares> list_gares_j;
     private ArrayList<Compagnies> list_compagnies_j;
@@ -26,11 +26,11 @@ public class Joueur {
     public Joueur (){
 
     }
-    public Joueur(String name_j, int color, int num){
-        setParam(name_j, color, num);
+    public Joueur(String name_j, int color, int num_joueur){
+        setParam(name_j, color, num_joueur);
         compte = new Compte_bancaire(1500);
-        if (num > 4){
-            num = 0;
+        if (num_joueur > 4){
+            num_joueur = 0;
             color = 0;
             setName("ERROR");
         }
@@ -46,10 +46,10 @@ public class Joueur {
         return color;
     }
     public int getPosition() {
-        return position;
+        return position_joeur;
     }
     public int getNum(){
-        return num;
+        return num_joueur;
     }
     public Label getLabel() {
         return label;
@@ -66,18 +66,18 @@ public class Joueur {
         this.color = color;
     }*/
     public void setPosition(int position) {
-        this.position = position;
+        this.position_joeur = position;
     }
     /*public void setNum(int num){
         this.num = num;
     }*/
-    public void setParam(String name_j, int color, int num){
+    public void setParam(String name_j, int color, int num_joueur){
         setName(name_j);
         //setColor(color);
         this.color = color;
         setPosition(0);
         //setNum(num);
-        this.num =  num;
+        this.num_joueur =  num_joueur;
     }
     //
 
@@ -110,7 +110,7 @@ public class Joueur {
     }
 
     public void avancer(int de){
-        position = position + de ;
+        position_joeur = position_joeur + de ;
     }
 
     public void getArgent(){
