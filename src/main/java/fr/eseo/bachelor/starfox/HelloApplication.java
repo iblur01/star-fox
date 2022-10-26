@@ -28,17 +28,16 @@ public class HelloApplication extends Application {
 
 
         Menu menu = new Menu();
-        menu.initMenu();
-        menu.initMenu();
+        menu.initMenu(stage);
+        menu.initMenu(stage);
 
 
 
 
-        Plateau plateau = new Plateau();
-        Scene scene1 = new Scene(menu.initMenu(), WIDTHm, HEIGHTm);
-        Scene scene2 = new Scene(plateau.getPlateau(), WIDTH, HEIGHT);
 
-        start.setOnAction(e -> stage.setScene(scene2));
+        Scene scene1 = new Scene(menu.initMenu(stage), WIDTHm, HEIGHTm);
+
+
 
 
 

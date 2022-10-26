@@ -35,8 +35,13 @@ public class Menu {
 
 
 
-    public GridPane initMenu(){
+    public GridPane initMenu(Stage stage){
 
+
+        Plateau plateau = new Plateau();
+
+        Scene scene2 = new Scene(plateau.getPlateau(), WIDTH, HEIGHT);
+        stage.setScene(scene2);
         root = new GridPane();
         root.setStyle("-fx-background-color:lightblue");
         root.setAlignment(Pos.TOP_CENTER);
@@ -73,7 +78,7 @@ public class Menu {
         Button start = new Button();
         start.setGraphic(imageViewStart);
 
-
+        start.setOnAction(e -> stage.setScene(scene2));
 
         Button para = new Button();
         para.setGraphic(imageViewButtonPara);
