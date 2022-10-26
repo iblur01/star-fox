@@ -37,7 +37,7 @@ public class Menu {
 
     public GridPane initMenu(Stage stage){
 
-
+        // test
         Plateau plateau = new Plateau();
 
         Scene scene2 = new Scene(plateau.getPlateau(), WIDTH, HEIGHT);

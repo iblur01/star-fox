@@ -42,6 +42,7 @@ public class HelloApplication extends Application {
 
 
         stage.setScene(scene1);
+        //test
         //stage.setResizable(false);
         stage.show();
 
