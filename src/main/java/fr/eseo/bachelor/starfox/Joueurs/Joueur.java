@@ -1,5 +1,4 @@
-package Joueur;
-
+package fr.eseo.bachelor.starfox.Joueurs;
 import fr.eseo.bachelor.starfox.cases.Compagnies;
 import fr.eseo.bachelor.starfox.cases.Gares;
 import fr.eseo.bachelor.starfox.cases.Rues;
@@ -81,3 +80,4 @@ public class Joueur {
         list_rues_j.add(rue);
     }
 }
+

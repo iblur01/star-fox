@@ -23,6 +23,7 @@ public class HelloApplication extends Application {
 
 
         Plateau plateau = new Plateau();
+        plateau.init();
 
         Scene scene = new Scene(plateau.getPlateau(), WIDTH, HEIGHT);
         stage.setScene(scene);
