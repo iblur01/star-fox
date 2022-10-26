@@ -215,7 +215,7 @@ public class Plateau {
         Label l4 = new Label();
         Label l5 = new Label();
 
-        if (nb>0){
+        /*if (nb>0){
             l1.setStyle("-fx-alignment: center; -fx-background-color: "+color+";");
         }
         if (nb>1){
@@ -226,7 +226,7 @@ public class Plateau {
         }
         if (nb>3){
             l4.setStyle("-fx-alignment: center; -fx-background-color: "+color+";");
-        }
+        }*/
 
 
         if (orientation==0){
