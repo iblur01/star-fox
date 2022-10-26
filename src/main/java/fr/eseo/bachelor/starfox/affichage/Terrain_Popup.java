@@ -4,6 +4,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
 import java.util.ArrayList;
+import java.util.Optional;
+
+import static java.lang.Boolean.TRUE;
 
 public class Terrain_Popup {
     ArrayList<String> carte_terrain = new ArrayList<>();
@@ -91,6 +94,108 @@ public class Terrain_Popup {
                     "                                       € "+this.hypotheque_terrain.get(emplacement)+"");
             popup.setContentText("");
             popup.showAndWait();
+
+        }
+
+
+    }
+
+    public void achat_terrain_popup(int emplacement, int num_joueur, int position_joueur, boolean enable_terrain){
+
+        this.generation_terrain();
+        this.generation_hotel();
+        this.generation_prix();
+        this.generation_loyer();
+        this.generation_maison1();
+        this.generation_maison2();
+        this.generation_maison3();
+        this.generation_maison4();
+        this.generation_hypotheque();
+
+        if (emplacement == 12 || emplacement == 28)
+        {
+            Alert dialogC = new Alert(Alert.AlertType.CONFIRMATION);
+            dialogC.setTitle(this.carte_terrain.get(emplacement));
+            dialogC.setHeaderText("" +
+                    "                            Relancez les dès : \n\n" +
+                    "                      Si vous possèdez une seul \n " +
+                    "                   compagnie, le loyer est 4 fois  \n " +
+                    "                   le montant indiqué par les dès. \n \n " +
+                    "                      Si vous possèdez les deux  \n " +
+                    "                     cartes compagnies, le loyer \n" +
+                    "                    est 10 fois le montant indiqué\n" +
+                    "                                par les dès.\n \n" +
+                    "                           Valeur Hypothécaire\n" +
+                    "                                     € 75");
+            if (enable_terrain == TRUE) {
+                dialogC.setContentText("Voulez-vous acheter ce terrain ?");
+                Optional<ButtonType> answer = dialogC.showAndWait();
+                if(answer.get() == ButtonType.OK) {
+                    //fonction.achetercompagnie();
+                } else {
+
+                }
+            }
+            else {
+                dialogC.setContentText("Ce terrain appartient au joueur");
+            }
+
+
+        }
+
+        else if(emplacement == 5 || emplacement == 15 || emplacement == 25 || emplacement == 35)
+        {
+            Alert dialogC = new Alert(Alert.AlertType.CONFIRMATION);
+            dialogC.setTitle(this.carte_terrain.get(emplacement));
+            dialogC.setHeaderText("" +
+                    "                          Valeur d'achat : 200€ \n\n" +
+                    "                             LOYER             25\n " +
+                    "                            Avec 2 Bars     50 \n " +
+                    "                            Avec 3 Bars     100 \n " +
+                    "                            Avec 4 Bars     200 \n " +
+                    "                          Valeur Hypothécaire \n" +
+                    "                                       € 100");
+            dialogC.setContentText("Voulez-vous acheter ce terrain ?");
+            Optional<ButtonType> answer = dialogC.showAndWait();
+            if(answer.get() == ButtonType.OK) {
+                //fonction.acheter gare();
+            } else {
+
+            }
+
+        }
+        else if (emplacement == 0 || emplacement == 2 ||emplacement == 4 || emplacement == 7 ||emplacement == 10 || emplacement == 17 ||emplacement == 20 || emplacement == 22 ||emplacement == 30 || emplacement == 33 ||emplacement == 36 || emplacement == 38)
+        {
+            Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog",ButtonType.OK);
+            popup.setTitle(this.carte_terrain.get(emplacement));
+            popup.setHeaderText(this.carte_terrain.get(emplacement));
+            popup.setContentText("");
+            popup.showAndWait();
+
+
+        }
+        else
+        {
+            Alert dialogC = new Alert(Alert.AlertType.CONFIRMATION);
+            dialogC.setTitle(this.carte_terrain.get(emplacement));
+            dialogC.setHeaderText("" +
+                    "                          Valeur d'achat : "+ this.prix_terrain.get(emplacement) +"€\n\n" +
+                    "                                                         €\n" +
+                    "         LOYER         Terrain nu            "+this.loyer_terrain.get(emplacement)+"\n " +
+                    "                            Avec 1 maison     "+this.maison1_terrain.get(emplacement)+" \n " +
+                    "                            Avec 2 maison     "+this.maison2_terrain.get(emplacement)+" \n " +
+                    "                            Avec 3 maison     "+this.maison3_terrain.get(emplacement)+" \n " +
+                    "                            Avec 4 maison     "+this.maison4_terrain.get(emplacement)+" \n " +
+                    "                            Avec HÔTEL         "+this.hotel_terrain.get(emplacement)+" \n\n " +
+                    "                           Valeur Hypothécaire\n" +
+                    "                                       € "+this.hypotheque_terrain.get(emplacement)+"");
+            dialogC.setContentText("Voulez-vous acheter ce terrain ?");
+            Optional<ButtonType> answer = dialogC.showAndWait();
+            if(answer.get() == ButtonType.OK) {
+                //fonction.acheter();
+            } else {
+
+            }
 
         }
 
