@@ -31,7 +31,9 @@ public class Joueur {
     public Joueur(String name_j, int color, int num_joueur){
         setParam(name_j, color, num_joueur);
         compte = new Compte_bancaire(1500);
-        if (num_joueur > 4){
+
+        if (num_joueur < 1) num_joueur = 1;
+        else if (num_joueur > 4){
             num_joueur = 0;
             color = 0;
             setName("ERROR");
@@ -124,8 +126,19 @@ public class Joueur {
         rue.setProprietaire(num_joueur);
         compte.ajouter_argent(rue.getVal_vente());
     }
+
+    public void acheter_maison(Rues rue){
+        if (list_rues_j.containsValue(rue)){
+            rue.setMaison( rue.getNmbr_maison() + 1 );
+            compte.retirer_argent(rue.getPrix_maison());
+        }
+        // else print("ERROR")
+    }
+
+    public void vendre_maison (Rues rue){
+        rue.setMaison(rue.getNmbr_maison() - 1);
+        compte.ajouter_argent(rue.getPrix_maison());
+    }
     //
-
-
 }
 

@@ -1,15 +1,20 @@
 package fr.eseo.bachelor.starfox;
 
 
+import fr.eseo.bachelor.starfox.Joueurs.Joueur;
 import fr.eseo.bachelor.starfox.affichage.Menu;
 import fr.eseo.bachelor.starfox.affichage.Plateau;
+import fr.eseo.bachelor.starfox.cases.*;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.skin.ComboBoxBaseSkin;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static java.lang.Long.MAX_VALUE;
 
@@ -22,8 +27,11 @@ public class HelloApplication extends Application {
     private final int WIDTHm = 500;
     private final int HEIGHTm = 500;
 
+
     @Override
     public void start(Stage stage) throws IOException {
+
+
 
 
 
@@ -31,7 +39,7 @@ public class HelloApplication extends Application {
         menu.initMenu(stage);
         menu.initMenu(stage);
 
-
+        GridPane root = new GridPane(); // pour tester des trucs
 
 
 
@@ -40,8 +48,12 @@ public class HelloApplication extends Application {
 
 
 
-
         stage.setScene(scene1);
+
+        //
+        stage.setScene(scene1);
+        //
+
         //test
         //stage.setResizable(false);
         stage.show();
