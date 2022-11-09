@@ -6,6 +6,8 @@ import fr.eseo.bachelor.starfox.cases.Rues;
 import javafx.scene.control.Label;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class Joueur {
@@ -14,7 +16,7 @@ public class Joueur {
     protected int position_joeur;
     private Label label;
     private int num_joueur;
-    private ArrayList<Rues> list_rues_j = new ArrayList<>();
+    private Map<Integer, Rues> list_rues_j = new HashMap<>();
     private ArrayList<Gares> list_gares_j;
     private ArrayList<Compagnies> list_compagnies_j;
 
@@ -84,12 +86,12 @@ public class Joueur {
 
     //Action du joueur
     public void acheter (Rues rue){
-        if (rue.getEnableTerrain() == true) {
-            list_rues_j.add(rue);
+        if (rue.getProprietaire() != 0 ) {
+            list_rues_j.put(rue.getEmplacement(), rue);
             compte.retirer_argent(rue.getLoyer());
             rue.setProprietaire(num_joueur);
-            rue.setEnableTerrain(false);
         }
+        //else print("ERROR");
     }
 
     public void acheter(Gares gare){
@@ -105,7 +107,6 @@ public class Joueur {
         acheter(gare);
         acheter(compagnie);
     }*/
-    //
 
     public int lance_de(){
         Random random = new Random();
@@ -118,8 +119,12 @@ public class Joueur {
         return position_joeur;
     }
 
-    public void getArgent(){
-
+    public void vendre (Rues rue, int num_joueur){
+        list_rues_j.remove(rue.getEmplacement());
+        rue.setProprietaire(num_joueur);
+        compte.ajouter_argent(rue.getVal_vente());
     }
+    //
+
 }
 
