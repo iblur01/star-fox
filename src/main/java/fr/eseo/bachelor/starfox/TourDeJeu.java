@@ -26,9 +26,33 @@ public class TourDeJeu {
         joueur_actuel = 1;
     }
 
-    public void popup_joueur(Joueur JoueurX){
-        // Faaire une popup pour tour de joueur
-        //JoueurX.getName() etc
+    private void popup_joueur(Joueur JoueurX){
+        // Faire une popup pour tour de joueur
+        // JoueurX.getName() etc
 
     }
+
+    private void TDJ (Joueur JoueurX){
+        int de;
+        if (true){ //Cas si le joueur est en prison
+            //faire une popup sur l'animation des dés + annonce des résultats
+            de = JoueurX.lance_de();
+            JoueurX.avancer(de);
+        }
+        else
+        {
+
+        }
+    }
+
+    private void action(Joueur JoueurX, int nb_case){
+
+        //Giga fonction
+
+        /*
+        /!\ faire 2 tableau contenant le numéros des cases maions et les cases evenments
+         */
+
+    }
+
 }
