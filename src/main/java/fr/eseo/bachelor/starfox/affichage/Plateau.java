@@ -1,8 +1,6 @@
 package fr.eseo.bachelor.starfox.affichage;
 
-import fr.eseo.bachelor.starfox.GrilleDeJeu;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -11,10 +9,6 @@ import javafx.scene.layout.*;
 
 import java.io.File;
 import java.util.ArrayList;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-import static java.lang.Long.MAX_VALUE;
 
 
 public class Plateau {
@@ -38,11 +32,16 @@ public class Plateau {
     /**
      * Generation du plateau complet.
      * @author Théo DELANNOY
-     * @param emplacementJ liste de contenant la place des joueur (liste de 4 cases)
+     * //@param emplacementJ liste de contenant la place des joueur (liste de 4 cases)
      * @return plateau
      */
-    public HBox getPlateau(ArrayList emplacementJ) {
-        this.emplacement = emplacementJ;
+    public HBox getPlateau() { //ArrayList emplacementJ
+        //this.emplacement = emplacementJ;
+
+        this.emplacement.add(12);
+        this.emplacement.add(13);
+        this.emplacement.add(12);
+        this.emplacement.add(12);
 
         File file;
         file = new File("img/background.png");

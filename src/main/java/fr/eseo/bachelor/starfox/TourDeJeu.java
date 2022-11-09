@@ -6,6 +6,7 @@ import fr.eseo.bachelor.starfox.affichage.Plateau;
 public class TourDeJeu {
 
     int joueur_actuel;
+    int nb_max_j;
 
     public void init_TDJ(int nb_j){
         Plateau plateau = new Plateau();
@@ -38,6 +39,11 @@ public class TourDeJeu {
             //faire une popup sur l'animation des dés + annonce des résultats
             de = JoueurX.lance_de();
             JoueurX.avancer(de);
+            action(JoueurX, de);
+            this.joueur_actuel++;
+            if (this.joueur_actuel > this.nb_max_j){
+                this.joueur_actuel = 1;
+            }
         }
         else
         {

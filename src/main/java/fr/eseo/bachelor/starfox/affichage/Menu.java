@@ -63,8 +63,8 @@ public class Menu {
         Label output3 = new Label();
         Label output4 = new Label();
 
-        //Scene scene2 = new Scene(plateau.getPlateau(), WIDTH, HEIGHT);
-        //stage.setScene(scene2);
+        Scene scene2 = new Scene(plateau.getPlateau(), WIDTH, HEIGHT);
+        stage.setScene(scene2);
         root = new GridPane();
         root.setStyle("-fx-background-color:lightblue");
         root.setAlignment(Pos.TOP_CENTER);
@@ -114,7 +114,7 @@ public class Menu {
 
 
 
-        //start.setOnAction(e -> stage.setScene(scene2));
+        start.setOnAction(e -> stage.setScene(scene2));
 
         Button para = new Button();
         para.setGraphic(imageViewButtonPara);
