@@ -32,9 +32,22 @@ public class Menu {
     private Image imageStart;
     private ImageView imageViewStart;
 
-    private File fileBon;
-    private Image imageBon;
-    private ImageView imageViewBon;
+    private File fileBonD;
+    private Image imageBonD;
+    private ImageView imageViewBonD;
+
+
+    private File fileBonG;
+    private Image imageBonG;
+    private ImageView imageViewBonG;
+
+    private File fileBonG2;
+    private Image imageBonG2;
+    private ImageView imageViewBonG2;
+
+    private File fileBonD2;
+    private Image imageBonD2;
+    private ImageView imageViewBonD2;
 
 
 
@@ -45,8 +58,13 @@ public class Menu {
         // test
         Plateau plateau = new Plateau();
 
+        Label output1 = new Label();
+        Label output2 = new Label();
+        Label output3 = new Label();
+        Label output4 = new Label();
+
         //Scene scene2 = new Scene(plateau.getPlateau(), WIDTH, HEIGHT);
-        stage.setScene(scene2);
+        //stage.setScene(scene2);
         root = new GridPane();
         root.setStyle("-fx-background-color:lightblue");
         root.setAlignment(Pos.TOP_CENTER);
@@ -77,9 +95,15 @@ public class Menu {
         imageStart = new Image(fileStart.toURI().toString(),0.3*WIDTH,0.125*HEIGHT,false,false);
         imageViewStart = new ImageView(imageStart);
 
-        fileBon = new File("img/bonhomme.png");
-        imageBon = new Image(fileBon.toURI().toString(),0.3*WIDTH,0.3*HEIGHT,false,false);
-        imageViewBon = new ImageView(imageBon);
+        fileBonD = new File("img/bonhommeD.png");
+        imageBonD = new Image(fileBonD.toURI().toString(),0.3*WIDTH,0.3*HEIGHT,false,false);
+        imageViewBonD = new ImageView(imageBonD);
+
+        fileBonG = new File("img/bonhommeG.png");
+        imageBonG = new Image(fileBonG.toURI().toString(),0.3*WIDTH,0.3*HEIGHT,false,false);
+        imageViewBonG = new ImageView(imageBonG);
+        imageViewBonG2 = new ImageView(imageBonG);
+        imageViewBonD2 = new ImageView(imageBonD);
 
         ComboBox<String> nombreJoueur = new ComboBox<>();
         nombreJoueur.getItems().addAll("2 joueurs","3 joueurs","4 joueurs");
@@ -90,7 +114,7 @@ public class Menu {
 
 
 
-        start.setOnAction(e -> stage.setScene(scene2));
+        //start.setOnAction(e -> stage.setScene(scene2));
 
         Button para = new Button();
         para.setGraphic(imageViewButtonPara);
@@ -118,9 +142,44 @@ public class Menu {
         parametre.setAlignment(Pos.TOP_RIGHT);
         root.add(parametre,2,0);
 
+        root.add(output1,0,1);
+        root.add(output2,0,2);
+        root.add(output3,2,1);
+        root.add(output4,2,2);
+
+        nombreJoueur.setOnAction(event -> {
+            if (nombreJoueur.getValue().equals("2 joueurs"))
+            {
+                output1.setGraphic(imageViewBonG);
+                output3.setGraphic(imageViewBonD);
+            }
+
+            else if (nombreJoueur.getValue().equals("3 joueurs"))
+            {
+                output1.setGraphic(imageViewBonG);
+                output2.setGraphic(imageViewBonG2);
+                output3.setGraphic(imageViewBonD);
+                //output4.setBackground(lightblue);
+
+            }
+
+            else if (nombreJoueur.getValue().equals("4 joueurs"))
+            {
+                output1.setGraphic(imageViewBonG);
+                output2.setGraphic(imageViewBonG2);
+                output3.setGraphic(imageViewBonD);
+                output4.setGraphic(imageViewBonD2);
+            }
+        }
+        );
 
 
-        root.add(imageViewBon,2,2);
+
+
+
+
+
+
 
         return root;
 
