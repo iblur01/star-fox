@@ -45,7 +45,7 @@ public class Menu {
         // test
         Plateau plateau = new Plateau();
 
-        Scene scene2 = new Scene(plateau.getPlateau(), WIDTH, HEIGHT);
+        //Scene scene2 = new Scene(plateau.getPlateau(), WIDTH, HEIGHT);
         stage.setScene(scene2);
         root = new GridPane();
         root.setStyle("-fx-background-color:lightblue");
