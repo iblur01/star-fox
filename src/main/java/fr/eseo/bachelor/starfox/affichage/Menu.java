@@ -32,6 +32,11 @@ public class Menu {
     private Image imageStart;
     private ImageView imageViewStart;
 
+    private File fileFond;
+    private Image imageFond;
+    private ImageView imageViewFond;
+    private ImageView imageViewFond2;
+
     private File fileBonD;
     private Image imageBonD;
     private ImageView imageViewBonD;
@@ -40,13 +45,8 @@ public class Menu {
     private File fileBonG;
     private Image imageBonG;
     private ImageView imageViewBonG;
-
-    private File fileBonG2;
-    private Image imageBonG2;
     private ImageView imageViewBonG2;
 
-    private File fileBonD2;
-    private Image imageBonD2;
     private ImageView imageViewBonD2;
 
 
@@ -105,6 +105,11 @@ public class Menu {
         imageViewBonG2 = new ImageView(imageBonG);
         imageViewBonD2 = new ImageView(imageBonD);
 
+        fileFond = new File("img/fond.png");
+        imageFond = new Image(fileFond.toURI().toString(),0.3*WIDTH,0.125*HEIGHT,false,false);
+        imageViewFond = new ImageView(imageFond);
+        imageViewFond2 = new ImageView(imageFond);
+
         ComboBox<String> nombreJoueur = new ComboBox<>();
         nombreJoueur.getItems().addAll("2 joueurs","3 joueurs","4 joueurs");
 
@@ -151,7 +156,9 @@ public class Menu {
             if (nombreJoueur.getValue().equals("2 joueurs"))
             {
                 output1.setGraphic(imageViewBonG);
+                output2.setGraphic(imageViewFond2);
                 output3.setGraphic(imageViewBonD);
+                output4.setGraphic(imageViewFond);
             }
 
             else if (nombreJoueur.getValue().equals("3 joueurs"))
@@ -159,7 +166,7 @@ public class Menu {
                 output1.setGraphic(imageViewBonG);
                 output2.setGraphic(imageViewBonG2);
                 output3.setGraphic(imageViewBonD);
-                //output4.setBackground(lightblue);
+                output4.setGraphic(imageViewFond);
 
             }
 
@@ -172,14 +179,6 @@ public class Menu {
             }
         }
         );
-
-
-
-
-
-
-
-
 
         return root;
 
