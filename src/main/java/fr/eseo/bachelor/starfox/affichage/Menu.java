@@ -1,5 +1,6 @@
 package fr.eseo.bachelor.starfox.affichage;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -30,6 +31,10 @@ public class Menu {
     private File fileStart;
     private Image imageStart;
     private ImageView imageViewStart;
+
+    private File fileBon;
+    private Image imageBon;
+    private ImageView imageViewBon;
 
 
 
@@ -69,14 +74,21 @@ public class Menu {
         imageView = new ImageView(image);
 
         fileStart = new File("img/start.png");
-        imageStart = new Image(fileStart.toURI().toString(),0.4*WIDTH,0.15*HEIGHT,false,false);
+        imageStart = new Image(fileStart.toURI().toString(),0.3*WIDTH,0.125*HEIGHT,false,false);
         imageViewStart = new ImageView(imageStart);
+
+        fileBon = new File("img/bonhomme.png");
+        imageBon = new Image(fileBon.toURI().toString(),0.3*WIDTH,0.3*HEIGHT,false,false);
+        imageViewBon = new ImageView(imageBon);
 
         ComboBox<String> nombreJoueur = new ComboBox<>();
         nombreJoueur.getItems().addAll("2 joueurs","3 joueurs","4 joueurs");
 
         Button start = new Button();
         start.setGraphic(imageViewStart);
+        start.setStyle("-fx-background-color:lightblue");
+
+
 
         start.setOnAction(e -> stage.setScene(scene2));
 
@@ -105,6 +117,10 @@ public class Menu {
         parametre.getChildren().add(para);
         parametre.setAlignment(Pos.TOP_RIGHT);
         root.add(parametre,2,0);
+
+
+
+        root.add(imageViewBon,2,2);
 
         return root;
 
