@@ -1,6 +1,6 @@
 package fr.eseo.bachelor.starfox.cases;
 
-abstract class Cases {
+abstract public class Cases {
 
     protected int emplacement;
     protected String name;
@@ -21,6 +21,7 @@ abstract class Cases {
     }
 
     public void setEmplacement(int emplacement) {
+        if (emplacement < 0) emplacement = 0;
         this.emplacement = emplacement;
     }
 
