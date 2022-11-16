@@ -1,5 +1,6 @@
 package fr.eseo.bachelor.starfox.affichage;
 
+import fr.eseo.bachelor.starfox.cases.Terrains;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -100,7 +101,7 @@ public class Terrain_Popup {
 
     }
 
-    public void achat_terrain_popup(int emplacement, int num_joueur, int position_joueur, boolean enable_terrain){
+    public void achat_terrain_popup(Terrains terrains/*int emplacement, int num_joueur, int position_joueur, boolean enable_terrain*/){
 
         this.generation_terrain();
         this.generation_hotel();
@@ -111,6 +112,9 @@ public class Terrain_Popup {
         this.generation_maison3();
         this.generation_maison4();
         this.generation_hypotheque();
+
+        int emplacement = terrains.getEmplacement();
+        boolean enable_terrain = terrains.getEnableTerrain();
 
         if (emplacement == 12 || emplacement == 28)
         {

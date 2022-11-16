@@ -6,15 +6,15 @@ import java.util.Map;
 
 public class Rues extends Terrains {
 
-    private ArrayList<Integer> loyer = new ArrayList<>();
+    /*private ArrayList<Integer> loyer = new ArrayList<>();
     private int nmbr_maison;
 
-    private int prix_maison;
+    private int prix_maison;*/
 
     public Rues() {
     }
 
-    public Rues(int emplacement, String name) {
+    /*public Rues(int emplacement, String name) {
         super(emplacement, name);
         setLoyer(emplacement);
         setPrix_maison(emplacement);
@@ -80,7 +80,7 @@ public class Rues extends Terrains {
 
     public int getLoyer() {
         return loyer.get(nmbr_maison);
-    }
+    }*/
 
     //test
 

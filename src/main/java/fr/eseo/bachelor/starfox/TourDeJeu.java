@@ -2,6 +2,7 @@ package fr.eseo.bachelor.starfox;
 
 import fr.eseo.bachelor.starfox.Joueurs.Joueur;
 import fr.eseo.bachelor.starfox.affichage.Plateau;
+import fr.eseo.bachelor.starfox.cases.Cases;
 import fr.eseo.bachelor.starfox.cases.Evenements;
 import fr.eseo.bachelor.starfox.cases.Terrains;
 
@@ -38,16 +39,15 @@ public class TourDeJeu {
 
     }
 
-    private void TDJ (Joueur JoueurX, ArrayList<Terrains> terrains, ArrayList<Evenements> evenements){
-        int de;
-
+    private void TDJ (Joueur JoueurX, ArrayList<Terrains> list_t, ArrayList<Evenements> list_e){
+        int nb_case;
 
 
         if (true){ //Cas si le joueur est en prison
             //faire une popup sur l'animation des dés + annonce des résultats
-            de = JoueurX.lance_de();
-            JoueurX.avancer(de);
-            action(JoueurX, de, terrains, evenements);
+            JoueurX.lance_de();
+            nb_case = JoueurX.getPosition();
+            action(JoueurX, nb_case, list_t, list_e);
             this.joueur_actuel++;
             if (this.joueur_actuel > this.nb_max_j){
                 this.joueur_actuel = 1;
@@ -59,35 +59,80 @@ public class TourDeJeu {
         }
     }
 
-    private void action(Joueur JoueurX, int nb_case, ArrayList<Terrains> terrains, ArrayList<Evenements> evenements){
+    private void action(Joueur JoueurX, int nb_case, ArrayList<Terrains> list_t, ArrayList<Evenements> list_e){
+
+        //Init fonction
+        int type_case = which_type(list_t, list_e, nb_case);
+        int placement_in_list = placement(list_t, list_e, nb_case);
+        Terrains terrains;
+        Evenements evenements;
+        //
+
 
         //Giga fonction
-        nb_case = 1; //pour test
-
-        if ( check_list(evenements, terrains, nb_case) ){
-
+        if (type_case == 1){
+            terrains = list_t.get(placement_in_list);
         }
-
-        /*else if (  ){
-
-        }*/
-        /*
-        /!\ faire 2 tableau contenant le numéros des cases maions et les cases evenments
-         */
+        else if (type_case == 2){
+            evenements = list_e.get(placement_in_list);
+        }
+        else JoueurX.passe_ton_tours();
+        //
+        // /!\ faire 2 tableau contenant le numéros des cases maions et les cases evenments
 
     }
 
 
-    private boolean check_list (ArrayList<Evenements> list_e, ArrayList<Terrains> list_t, int nb_case){
+    private int which_type (ArrayList<Terrains> list_t, ArrayList<Evenements> list_e, int nb_case){
 
-        boolean check = false;
+        int check = 0;
+        Terrains terrains;
+        Evenements evenements;
 
 
-        for (int i = 0; i< list_t.size(); i++){
-            list_t.get(i);
+        for (int i = 0; i<list_t.size(); i++){
+
+            terrains = list_t.get(i);
+            if ( terrains.getEmplacement() == nb_case){
+                check = 1;
+            }
+        }
+
+        for (int j = 0; j < list_e.size(); j++) {
+
+            evenements = list_e.get(j);
+            if (evenements.getEmplacement() == nb_case) {
+                check = 2;
+            }
         }
 
         return check;
+    }
+
+    private int placement (ArrayList<Terrains> list_t, ArrayList<Evenements> list_e, int nb_case){
+
+        int position = 0;
+        Terrains terrains;
+        Evenements evenements;
+
+
+        for (int i = 0; i<list_t.size(); i++){
+
+            terrains = list_t.get(i);
+            if ( terrains.getEmplacement() == nb_case){
+                position = i;
+            }
+        }
+
+        for (int j = 0; j < list_e.size(); j++) {
+
+            evenements = list_e.get(j);
+            if (evenements.getEmplacement() == nb_case) {
+                position = j;
+            }
+        }
+
+        return position;
     }
 
 }
