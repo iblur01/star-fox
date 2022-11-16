@@ -58,6 +58,10 @@ public class Joueur {
     public Label getLabel() {
         return label;
     }
+
+    public int getCompte (){
+        return compte.getArgent();
+    }
     //
 
     //setteur

@@ -1,6 +1,6 @@
 package fr.eseo.bachelor.starfox.cases;
 
-abstract class Evenements extends Cases{
+abstract public class Evenements extends Cases{
 
 
 }

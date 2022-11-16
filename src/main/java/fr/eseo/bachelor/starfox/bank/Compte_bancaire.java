@@ -5,8 +5,8 @@ import static java.lang.Boolean.TRUE;
 
 public class Compte_bancaire {
 
-    protected int argent = 1500;
-    protected boolean compte_actif = TRUE;
+    private int argent = 1500;
+    private boolean compte_actif = TRUE;
 
     public Compte_bancaire(int argent) {
         this.argent = argent;
@@ -32,6 +32,10 @@ public class Compte_bancaire {
 
     public boolean get_status(){
         return compte_actif;
+    }
+
+    public int getArgent(){
+        return argent;
     }
 
 

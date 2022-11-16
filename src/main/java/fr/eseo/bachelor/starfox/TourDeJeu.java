@@ -2,6 +2,11 @@ package fr.eseo.bachelor.starfox;
 
 import fr.eseo.bachelor.starfox.Joueurs.Joueur;
 import fr.eseo.bachelor.starfox.affichage.Plateau;
+import fr.eseo.bachelor.starfox.cases.Evenements;
+import fr.eseo.bachelor.starfox.cases.Terrains;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class TourDeJeu {
 
@@ -45,14 +50,35 @@ public class TourDeJeu {
         }
     }
 
-    private void action(Joueur JoueurX, int nb_case){
+    private void action(Joueur JoueurX, int nb_case, ArrayList<Terrains> terrains, ArrayList<Evenements> evenements){
 
         //Giga fonction
+        nb_case = 1; //pour test
 
+        if ( check_list(evenements, terrains, nb_case) ){
+
+        }
+
+        /*else if (  ){
+
+        }*/
         /*
         /!\ faire 2 tableau contenant le numéros des cases maions et les cases evenments
          */
 
+    }
+
+
+    private boolean check_list (ArrayList<Evenements> list_e, ArrayList<Terrains> list_t, int nb_case){
+
+        boolean check = false;
+
+
+        for (int i = 0; i< list_t.size(); i++){
+            list_t.get(i);
+        }
+
+        return check;
     }
 
 }
