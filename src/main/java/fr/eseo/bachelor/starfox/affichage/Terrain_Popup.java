@@ -1,5 +1,6 @@
 package fr.eseo.bachelor.starfox.affichage;
 
+import fr.eseo.bachelor.starfox.Joueurs.Joueur;
 import fr.eseo.bachelor.starfox.cases.Terrains;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -101,7 +102,7 @@ public class Terrain_Popup {
 
     }
 
-    public void achat_terrain_popup(Terrains terrains/*int emplacement, int num_joueur, int position_joueur, boolean enable_terrain*/){
+    public void achat_terrain_popup(Joueur JoueurX, Terrains terrains){
 
         this.generation_terrain();
         this.generation_hotel();
@@ -136,6 +137,7 @@ public class Terrain_Popup {
                 Optional<ButtonType> answer = dialogC.showAndWait();
                 if(answer.get() == ButtonType.OK) {
                     //fonction.achetercompagnie();
+                    JoueurX.acheter(terrains);
                 } else {
 
                 }
@@ -163,6 +165,7 @@ public class Terrain_Popup {
             Optional<ButtonType> answer = dialogC.showAndWait();
             if(answer.get() == ButtonType.OK) {
                 //fonction.acheter gare();
+                JoueurX.acheter(terrains);
             } else {
 
             }
@@ -197,6 +200,7 @@ public class Terrain_Popup {
             Optional<ButtonType> answer = dialogC.showAndWait();
             if(answer.get() == ButtonType.OK) {
                 //fonction.acheter();
+                JoueurX.acheter(terrains);
             } else {
 
             }

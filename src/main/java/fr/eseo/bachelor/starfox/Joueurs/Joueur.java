@@ -17,11 +17,7 @@ public class Joueur {
     protected int position_joeur;
     private Label label;
     private int num_joueur;
-
     private ArrayList<Terrains> list_terrains_joueur = new ArrayList<>();
-    /*private Map<Integer, Rues> list_rues_j = new HashMap<>();
-    private ArrayList<Gares> list_gares_j;
-    private ArrayList<Compagnies> list_compagnies_j;*/
     private Compte_bancaire compte;
 
 
@@ -63,6 +59,7 @@ public class Joueur {
     }
     //
 
+
     //setteur
     public void setName(String name_j) {
         this.name_j = name_j;
@@ -99,29 +96,6 @@ public class Joueur {
         }
     }
 
-    /*public void acheter (Rues rue){
-        if (rue.getProprietaire() != 0 ) {
-            list_rues_j.put(rue.getEmplacement(), rue);
-            compte.retirer_argent(rue.getLoyer());
-            rue.setProprietaire(num_joueur);
-        }
-        //else print("ERROR");
-    }
-
-    public void acheter(Gares gare){
-        list_gares_j.add(gare);
-    }
-
-    public void acheter(Compagnies compagnie){
-        list_compagnies_j.add(compagnie);
-    }*/
-
-    /*public void acheter(Rues rue, Gares gare, Compagnies compagnie){
-        acheter(rue);
-        acheter(gare);
-        acheter(compagnie);
-    }*/
-
     public int lance_de(){
         Random random = new Random();
         int num = 1 + random.nextInt(6-1);
@@ -152,14 +126,22 @@ public class Joueur {
             if ( e == terrains){
                 maison = maison + 1;
                 terrains.setMaison(maison);
+                compte.retirer_argent( terrains.getPrix_maison() );
             }
         }
-        // else print("ERROR")
     }
 
-    public void vendre_maison (Rues rue){
-        rue.setMaison(rue.getNmbr_maison() - 1);
-        compte.ajouter_argent(rue.getPrix_maison());
+    public void vendre_maison (Terrains terrains){
+
+        int maison = terrains.getNmbr_maison();
+
+        for (Terrains e : list_terrains_joueur){
+            if ( e == terrains){
+                maison = maison - 1;
+                terrains.setMaison(maison);
+                compte.ajouter_argent( terrains.getPrix_maison() );
+            }
+        }
     }
 
     public void passe_ton_tours (){
