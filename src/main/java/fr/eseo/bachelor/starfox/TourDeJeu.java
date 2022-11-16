@@ -38,13 +38,16 @@ public class TourDeJeu {
 
     }
 
-    private void TDJ (Joueur JoueurX){
+    private void TDJ (Joueur JoueurX, ArrayList<Terrains> terrains, ArrayList<Evenements> evenements){
         int de;
+
+
+
         if (true){ //Cas si le joueur est en prison
             //faire une popup sur l'animation des dés + annonce des résultats
             de = JoueurX.lance_de();
             JoueurX.avancer(de);
-            action(JoueurX, de);
+            action(JoueurX, de, terrains, evenements);
             this.joueur_actuel++;
             if (this.joueur_actuel > this.nb_max_j){
                 this.joueur_actuel = 1;
