@@ -34,10 +34,11 @@ public class HelloApplication extends Application {
 
 
 
-
         Menu menu = new Menu();
         menu.initMenu(stage);
         menu.initMenu(stage);
+
+
 
         GridPane root = new GridPane(); // pour tester des trucs
 

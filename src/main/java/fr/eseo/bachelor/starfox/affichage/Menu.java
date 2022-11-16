@@ -1,11 +1,14 @@
 package fr.eseo.bachelor.starfox.affichage;
 
+import fr.eseo.bachelor.starfox.Joueurs.Joueur;
+import fr.eseo.bachelor.starfox.TourDeJeu;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -19,6 +22,8 @@ public class Menu {
     private final int HEIGHT = 500;
     private GridPane root;
     private Label label;
+
+    private int nombre_joueur = 0;
 
     private File buttonPara;
     private Image imageButtonPara;
@@ -57,6 +62,9 @@ public class Menu {
 
         // test
         Plateau plateau = new Plateau();
+        TourDeJeu TDJ = new TourDeJeu();
+
+
 
         Label output1 = new Label();
         Label output2 = new Label();
@@ -113,13 +121,34 @@ public class Menu {
         ComboBox<String> nombreJoueur = new ComboBox<>();
         nombreJoueur.getItems().addAll("2 joueurs","3 joueurs","4 joueurs");
 
+        TextField inputJ1 = new TextField();
+        inputJ1.setMaxSize(90,20);
+        Label labelForInputJ1 = new Label("Nom Joueur 1 : ");
+        labelForInputJ1.setLabelFor(inputJ1);
+
+        TextField inputJ2 = new TextField();
+        inputJ2.setMaxSize(90,20);
+        Label labelForInputJ2 = new Label("Nom Joueur 2 : ");
+        labelForInputJ2.setLabelFor(inputJ2);
+
+        TextField inputJ3 = new TextField();
+        inputJ3.setMaxSize(90,20);
+        Label labelForInputJ3 = new Label("Nom Joueur 3 : ");
+        labelForInputJ3.setLabelFor(inputJ3);
+
+        TextField inputJ4 = new TextField();
+        inputJ4.setMaxSize(90,20);
+        Label labelForInputJ4 = new Label("Nom Joueur 4 : ");
+        labelForInputJ4.setLabelFor(inputJ4);
+
+
         Button start = new Button();
         start.setGraphic(imageViewStart);
         start.setStyle("-fx-background-color:lightblue");
 
 
 
-        start.setOnAction(e -> stage.setScene(scene2));
+
 
         Button para = new Button();
         para.setGraphic(imageViewButtonPara);
@@ -128,7 +157,7 @@ public class Menu {
         titre.setGraphic(imageView);
 
         VBox choixJoueur = new VBox();
-        choixJoueur.getChildren().add(nombreJoueur);
+        choixJoueur.getChildren().addAll(nombreJoueur,labelForInputJ1,inputJ1,labelForInputJ2,inputJ2,labelForInputJ3,inputJ3,labelForInputJ4,inputJ4);
         choixJoueur.setAlignment(Pos.TOP_CENTER);
         root.add(choixJoueur,1,2);
 
@@ -159,6 +188,8 @@ public class Menu {
                 output2.setGraphic(imageViewFond2);
                 output3.setGraphic(imageViewBonD);
                 output4.setGraphic(imageViewFond);
+                nombre_joueur = 2;
+                TDJ.setNameAll(inputJ1.getText(),inputJ2.getText(),"NULL","NULL");
             }
 
             else if (nombreJoueur.getValue().equals("3 joueurs"))
@@ -167,6 +198,8 @@ public class Menu {
                 output2.setGraphic(imageViewBonG2);
                 output3.setGraphic(imageViewBonD);
                 output4.setGraphic(imageViewFond);
+                nombre_joueur = 3;
+                TDJ.setNameAll(inputJ1.getText(),inputJ2.getText(),inputJ3.getText(),"NULL");
 
             }
 
@@ -176,9 +209,18 @@ public class Menu {
                 output2.setGraphic(imageViewBonG2);
                 output3.setGraphic(imageViewBonD);
                 output4.setGraphic(imageViewBonD2);
+                nombre_joueur = 4;
+                TDJ.setNameAll(inputJ1.getText(),inputJ2.getText(),inputJ3.getText(),inputJ4.getText());
             }
         }
         );
+
+        start.setOnAction(e -> {
+
+            TDJ.init_TDJ(nombre_joueur);
+            TDJ.test_game();
+            //stage.setScene(scene2);
+        });
 
         return root;
 

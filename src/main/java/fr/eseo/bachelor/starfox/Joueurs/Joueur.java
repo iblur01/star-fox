@@ -18,7 +18,9 @@ public class Joueur {
     private Label label;
     private int num_joueur;
     private ArrayList<Terrains> list_terrains_joueur = new ArrayList<>();
-    private Compte_bancaire compte;
+    private Compte_bancaire compte = new Compte_bancaire(1500);
+
+    private boolean enable = false;
 
 
 
@@ -26,7 +28,7 @@ public class Joueur {
     public Joueur (){}
     public Joueur(String name_j, int color, int num_joueur){
         setParam(name_j, color, num_joueur);
-        compte = new Compte_bancaire(1500);
+        //compte = new Compte_bancaire(1500);
 
         /*if (num_joueur < 1) num_joueur = 1;
         else if (num_joueur > 4){
@@ -55,7 +57,9 @@ public class Joueur {
         return label;
     }
     public int getCompte (){
-        return compte.getArgent();
+        int salaire = compte.getArgent();
+        return salaire;
+
     }
     //
 
@@ -66,6 +70,8 @@ public class Joueur {
         label = new Label();
         label.setText(name_j);
     }
+
+
     /*public void setColor(int color) {
         this.color = color;
     }*/
@@ -82,6 +88,10 @@ public class Joueur {
         setPosition(0);
         //setNum(num);
         this.num_joueur =  num_joueur;
+    }
+
+    public void setEnable(boolean state) {
+        this.enable = state;
     }
     //
 
@@ -145,6 +155,7 @@ public class Joueur {
     }
 
     public void passe_ton_tours (){
+
 
     }
     //

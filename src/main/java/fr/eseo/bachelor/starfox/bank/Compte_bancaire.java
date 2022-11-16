@@ -5,8 +5,8 @@ import static java.lang.Boolean.TRUE;
 
 public class Compte_bancaire {
 
-    private int argent = 1500;
-    private boolean compte_actif = TRUE;
+    protected int argent = 1500;
+    protected boolean compte_actif = TRUE;
 
     public Compte_bancaire(int argent) {
         this.argent = argent;
