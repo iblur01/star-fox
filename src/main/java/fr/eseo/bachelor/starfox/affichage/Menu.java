@@ -219,7 +219,7 @@ public class Menu {
 
             TDJ.init_TDJ(nombre_joueur);
             TDJ.test_game();
-            //stage.setScene(scene2);
+            stage.setScene(scene2);
         });
 
         return root;
