@@ -183,7 +183,7 @@ public class Menu {
                 output3.setGraphic(imageViewBonD);
                 output4.setGraphic(imageViewFond);
                 nombre_joueur = 2;
-                TDJ.setNameAll(inputJ1.getText(),inputJ2.getText(),"NULL","NULL");
+                TDJ.setNameAll(inputJ1.getText(),inputJ2.getText(),"","");
             }
 
             else if (nombreJoueur.getValue().equals("3 joueurs"))
