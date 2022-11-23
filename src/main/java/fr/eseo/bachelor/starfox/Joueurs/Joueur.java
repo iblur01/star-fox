@@ -20,7 +20,7 @@ public class Joueur {
     private ArrayList<Terrains> list_terrains_joueur = new ArrayList<>();
     private Compte_bancaire compte = new Compte_bancaire(1500);
 
-    private boolean enable = false;
+    private boolean enable = true;
 
 
 
@@ -112,7 +112,7 @@ public class Joueur {
     public int lance_de(){
         Random random = new Random();
         int num = 1 + random.nextInt(6-1);
-        avancer(num);
+        if (position_joueur >= 0 && position_joueur <= 39) avancer(num);
         return num;
     }
 

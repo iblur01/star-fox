@@ -171,7 +171,7 @@ public class Terrain_Popup {
             }
 
         }
-        else if (emplacement == 0 || emplacement == 2 ||emplacement == 4 || emplacement == 7 ||emplacement == 10 || emplacement == 17 ||emplacement == 20 || emplacement == 22 ||emplacement == 30 || emplacement == 33 ||emplacement == 36 || emplacement == 38)
+        else if (emplacement == 0 || emplacement == 2 || emplacement == 4 || emplacement == 7 ||emplacement == 10 || emplacement == 17 ||emplacement == 20 || emplacement == 22 ||emplacement == 30 || emplacement == 33 ||emplacement == 36 || emplacement == 38)
         {
             Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog",ButtonType.OK);
             popup.setTitle(this.carte_terrain.get(emplacement));
