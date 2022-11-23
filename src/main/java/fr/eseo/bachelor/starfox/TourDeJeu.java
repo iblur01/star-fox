@@ -7,22 +7,24 @@ import fr.eseo.bachelor.starfox.cases.Evenements;
 import fr.eseo.bachelor.starfox.cases.Terrains;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class TourDeJeu {
-
+    Plateau plateau = new Plateau();
     int joueur_actuel;
     int nb_max_j;
 
-    Joueur Joueur1 = new Joueur("Albert", 2, 2);
-    Joueur Joueur2 = new Joueur("Albert", 2, 2);
-    Joueur Joueur3 = new Joueur("Albert", 2, 2);
-    Joueur Joueur4 = new Joueur("Albert", 2, 2);
+    Joueur Joueur1 = new Joueur("Unknown", 2, 2);
+    Joueur Joueur2 = new Joueur("Unknown", 2, 2);
+    Joueur Joueur3 = new Joueur("Unknown", 2, 2);
+    Joueur Joueur4 = new Joueur("Unknown", 2, 2);
 
     public void init_TDJ(int nb_j){
-        Plateau plateau = new Plateau();
+
 
         if (nb_j>1){
             Joueur1.setEnable(true);
@@ -158,6 +160,19 @@ public class TourDeJeu {
         Joueur2.setName(name2);
         Joueur3.setName(name3);
         Joueur4.setName(name4);
+
+    }
+
+    public HBox setPlateau(){
+        HBox stage = new HBox();
+        VBox vbox1 = new VBox();
+        VBox vbox2 = new VBox();
+
+        vbox1.getChildren().addAll(plateau.user_space(Joueur1, joueur_actuel),plateau.user_space(Joueur4, joueur_actuel));
+        vbox2.getChildren().addAll(plateau.user_space(Joueur2, joueur_actuel),plateau.user_space(Joueur3, joueur_actuel));
+        stage.getChildren().addAll(vbox1,plateau.getPlateau(),vbox2);
+
+        return stage;
 
     }
 

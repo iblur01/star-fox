@@ -38,12 +38,7 @@ public class HelloApplication extends Application {
         menu.initMenu(stage);
         menu.initMenu(stage);
 
-
-
-        GridPane root = new GridPane(); // pour tester des trucs
-
-
-
+        GridPane root = new GridPane(); // pour tester des truc
         Scene scene1 = new Scene(menu.initMenu(stage), WIDTHm, HEIGHTm);
 
 

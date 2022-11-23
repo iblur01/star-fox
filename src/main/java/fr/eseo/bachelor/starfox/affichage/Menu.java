@@ -61,17 +61,14 @@ public class Menu {
     public GridPane initMenu(Stage stage){
 
         // test
-        Plateau plateau = new Plateau();
         TourDeJeu TDJ = new TourDeJeu();
-
-
 
         Label output1 = new Label();
         Label output2 = new Label();
         Label output3 = new Label();
         Label output4 = new Label();
 
-        Scene scene2 = new Scene(plateau.getPlateau(), WIDTH, HEIGHT);
+        Scene scene2 = new Scene(TDJ.setPlateau(), WIDTH, HEIGHT);
         stage.setScene(scene2);
         root = new GridPane();
         root.setStyle("-fx-background-color:lightblue");
@@ -147,9 +144,6 @@ public class Menu {
         start.setStyle("-fx-background-color:lightblue");
 
 
-
-
-
         Button para = new Button();
         para.setGraphic(imageViewButtonPara);
 
@@ -218,11 +212,12 @@ public class Menu {
         start.setOnAction(e -> {
 
             TDJ.init_TDJ(nombre_joueur);
-            TDJ.test_game();
             stage.setScene(scene2);
         });
 
         return root;
 
     }
+
+
 }

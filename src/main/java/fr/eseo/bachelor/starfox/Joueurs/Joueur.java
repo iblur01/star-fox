@@ -56,6 +56,9 @@ public class Joueur {
     public Label getLabel() {
         return label;
     }
+    public boolean getEnable() {
+        return enable;
+    }
     public int getCompte (){
         int salaire = compte.getArgent();
         return salaire;

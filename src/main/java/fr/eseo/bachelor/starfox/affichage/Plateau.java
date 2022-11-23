@@ -1,5 +1,6 @@
 package fr.eseo.bachelor.starfox.affichage;
 
+import fr.eseo.bachelor.starfox.Joueurs.Joueur;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -47,8 +48,6 @@ public class Plateau {
         file = new File("img/background.png");
         Image img = new Image(file.toURI().toString());
         ImageView view = new ImageView(img);
-
-
 
 
         HBox root = new HBox();
@@ -298,6 +297,22 @@ public class Plateau {
 
             return jauge;
         }
+    }
+
+    public VBox user_space(Joueur JoueurX, int Joueur_act){
+
+        VBox space = new VBox();
+        if (JoueurX.getEnable()){ //si le joueur est actif
+            Label name = new Label(JoueurX.getName());
+            Label money = new Label("Money "+ Integer.toString(JoueurX.getCompte()));
+            Label turn = new Label("Turn" +Integer.toString(54+43));
+            space.getChildren().addAll(name, money, turn);
+        }
+        else{
+            Label not_player = new Label("This player is inactive");
+            space.getChildren().addAll(not_player);
+        }
+        return space;
     }
 
 }
