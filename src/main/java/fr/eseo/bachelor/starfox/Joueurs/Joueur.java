@@ -14,7 +14,7 @@ import java.util.Random;
 public class Joueur {
     private String name_j;
     private int color;
-    protected int position_joeur;
+    protected int position_joueur;
     private Label label;
     private int num_joueur;
     private ArrayList<Terrains> list_terrains_joueur = new ArrayList<>();
@@ -48,7 +48,7 @@ public class Joueur {
         return color;
     }
     public int getPosition() {
-        return position_joeur;
+        return position_joueur;
     }
     public int getNum(){
         return num_joueur;
@@ -76,7 +76,7 @@ public class Joueur {
         this.color = color;
     }*/
     public void setPosition(int position) {
-        this.position_joeur = position;
+        this.position_joueur = position;
     }
     /*public void setNum(int num){
         this.num = num;
@@ -114,8 +114,8 @@ public class Joueur {
     }
 
     public void avancer(int de){
-        position_joeur = position_joeur + de ;
-        //return position_joeur;
+        position_joueur = position_joueur + de ;
+        //return position_joueur;
     }
 
     public void vendre (Terrains terrains, int nb_case){
