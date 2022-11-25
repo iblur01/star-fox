@@ -18,6 +18,8 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 public class Menu {
+
+    TourDeJeu TDJ = new TourDeJeu();
     private final int WIDTH = 500;
     private final int HEIGHT = 500;
     private GridPane root;
@@ -59,9 +61,6 @@ public class Menu {
 
 
     public GridPane initMenu(Stage stage){
-
-        // test
-        TourDeJeu TDJ = new TourDeJeu();
 
         Label output1 = new Label();
         Label output2 = new Label();
@@ -184,7 +183,7 @@ public class Menu {
                 output3.setGraphic(imageViewBonD);
                 output4.setGraphic(imageViewFond);
                 nombre_joueur = 2;
-                TDJ.setNameAll(inputJ1.getText(),inputJ2.getText(),"","");
+                TDJ.setNameAll(inputJ1.getText(),inputJ2.getText(),"NULL","NULL");
             }
 
             else if (nombreJoueur.getValue().equals("3 joueurs"))
@@ -222,7 +221,7 @@ public class Menu {
             else{
                 Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
                 popup.setTitle("WARNING");
-                popup.setHeaderText("Vous ne pouvez pas lancer une parti sans selectionner de joueur.");
+                popup.setHeaderText("Vous ne pouvez pas lancer une partie sans selectionner de joueur.");
                 popup.showAndWait();
             }
 

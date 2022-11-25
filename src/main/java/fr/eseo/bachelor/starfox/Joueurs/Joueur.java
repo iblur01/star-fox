@@ -14,6 +14,8 @@ import java.util.Random;
 public class Joueur {
     private String name_j;
     private int color;
+
+    private String hexColor;
     protected int position_joueur;
     private Label label;
     private int num_joueur;
@@ -24,9 +26,10 @@ public class Joueur {
 
 
 
+
     //Constructeur
     public Joueur (){}
-    public Joueur(String name_j, int color, int num_joueur){
+    public Joueur(String name_j, String color, int num_joueur){
         setParam(name_j, color, num_joueur);
         //compte = new Compte_bancaire(1500);
 
@@ -59,6 +62,7 @@ public class Joueur {
     public boolean getEnable() {
         return enable;
     }
+    public String getHexColor(){return hexColor;}
     public int getCompte (){
         int salaire = compte.getArgent();
         return salaire;
@@ -74,6 +78,9 @@ public class Joueur {
         label.setText(name_j);
     }
 
+    public void setHexColor(String color){
+        this.hexColor = color;
+    }
 
     /*public void setColor(int color) {
         this.color = color;
@@ -84,10 +91,10 @@ public class Joueur {
     /*public void setNum(int num){
         this.num = num;
     }*/
-    public void setParam(String name_j, int color, int num_joueur){
+    public void setParam(String name_j, String color, int num_joueur){
         setName(name_j);
         //setColor(color);
-        this.color = color;
+        this.hexColor = color;
         setPosition(0);
         //setNum(num);
         this.num_joueur =  num_joueur;

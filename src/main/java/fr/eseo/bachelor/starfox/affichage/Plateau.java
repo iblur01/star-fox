@@ -25,9 +25,7 @@ public class Plateau {
      * @param J le numéro du joueur
      * @return l'emplacemaent du joueur en fonction de son num
      */
-    private int getJ(int J){
-        return this.emplacement.get(J);
-    }
+
 
 
     /**
@@ -36,13 +34,17 @@ public class Plateau {
      * //@param emplacementJ liste de contenant la place des joueur (liste de 4 cases)
      * @return plateau
      */
-    public HBox getPlateau() { //ArrayList emplacementJ
+    public HBox getPlateau(Joueur JoueurA, Joueur JoueurB, Joueur JoueurC, Joueur JoueurD ) { //ArrayList emplacementJ
         //this.emplacement = emplacementJ;
 
-        this.emplacement.add(12);
-        this.emplacement.add(13);
-        this.emplacement.add(12);
-        this.emplacement.add(12);
+        if (JoueurA.getEnable()) {this.emplacement.add(JoueurA.getPosition());}
+        else {this.emplacement.add(100);}
+        if (JoueurB.getEnable()) {this.emplacement.add(JoueurB.getPosition());}
+        else {this.emplacement.add(100);}
+        if (JoueurC.getEnable()) {this.emplacement.add(JoueurC.getPosition());}
+        else {this.emplacement.add(100);}
+        if (JoueurD.getEnable()) {this.emplacement.add(JoueurD.getPosition());}
+        else {this.emplacement.add(100);}
 
         File file;
         file = new File("img/background.png");
@@ -302,11 +304,28 @@ public class Plateau {
     public VBox user_space(Joueur JoueurX, int Joueur_act){
 
         VBox space = new VBox();
+        System.out.println(JoueurX.getEnable());
         if (JoueurX.getEnable()){ //si le joueur est actif
             Label name = new Label(JoueurX.getName());
+            Label color = new Label();
             Label money = new Label("Money "+ Integer.toString(JoueurX.getCompte()));
-            Label turn = new Label("Turn" +Integer.toString(54+43));
-            space.getChildren().addAll(name, money, turn);
+            Label position = new Label("Position " +JoueurX.getPosition());
+            Button button = new Button();
+
+            color.setMinSize(400,100);
+            color.setMaxSize(400,100);
+
+            name.setMinSize(400,100);
+            name.setMaxSize(400,100);
+
+            money.setMinSize(400,100);
+            money.setMaxSize(400,100);
+
+            button.setMinSize(400,100);
+            button.setMaxSize(400,100);
+
+            color.setStyle("-fx-alignment: center; -fx-background-color: "+JoueurX.getHexColor()+";");
+            space.getChildren().addAll(color,name, money, position,button);
         }
         else{
             Label not_player = new Label("This player is inactive");

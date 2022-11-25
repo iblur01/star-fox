@@ -18,10 +18,10 @@ public class TourDeJeu {
     int joueur_actuel;
     int nb_max_j;
 
-    Joueur Joueur1 = new Joueur("Unknown", 2, 2);
-    Joueur Joueur2 = new Joueur("Unknown", 2, 2);
-    Joueur Joueur3 = new Joueur("Unknown", 2, 2);
-    Joueur Joueur4 = new Joueur("Unknown", 2, 2);
+    Joueur Joueur1 = new Joueur("Unknown", "#0000fe", 2);
+    Joueur Joueur2 = new Joueur("Unknown", "#ff0101", 2);
+    Joueur Joueur3 = new Joueur("Unknown", "#fcdd00", 2);
+    Joueur Joueur4 = new Joueur("Unknown", "#34623f", 2);
 
     public void init_TDJ(int nb_j){
 
@@ -170,7 +170,7 @@ public class TourDeJeu {
 
         vbox1.getChildren().addAll(plateau.user_space(Joueur1, joueur_actuel),plateau.user_space(Joueur4, joueur_actuel));
         vbox2.getChildren().addAll(plateau.user_space(Joueur2, joueur_actuel),plateau.user_space(Joueur3, joueur_actuel));
-        stage.getChildren().addAll(vbox1,plateau.getPlateau(),vbox2);
+        stage.getChildren().addAll(vbox1,plateau.getPlateau(Joueur1,Joueur2,Joueur3,Joueur4),vbox2);
 
         return stage;
 
