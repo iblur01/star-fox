@@ -37,7 +37,7 @@ public class Chance_Popup {
 
     }
 
-    private void action_carte(int nb_cartes){
+    public void action_carte(int nb_cartes){
 
         if (nb_cartes == 0){
             //Le joueur actuel va à la case eseo
