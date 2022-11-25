@@ -7,6 +7,10 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -312,25 +316,31 @@ public class Plateau {
             Label position = new Label("Position " +JoueurX.getPosition());
             Button button = new Button();
 
-            color.setMinSize(400,100);
-            color.setMaxSize(400,100);
+            color.setMinSize(200,100);
+            color.setMaxSize(200,100);
 
-            name.setMinSize(400,100);
-            name.setMaxSize(400,100);
+            name.setMinSize(200,100);
+            name.setMaxSize(200,100);
 
-            money.setMinSize(400,100);
-            money.setMaxSize(400,100);
+            name.setFont(Font.font("helvetica", FontWeight.BOLD, FontPosture.REGULAR, 40));
 
-            button.setMinSize(400,100);
-            button.setMaxSize(400,100);
+            money.setMinSize(200,100);
+            money.setMaxSize(200,100);
+
+            button.setMinSize(60,20);
+            button.setMaxSize(60,20);
 
             color.setStyle("-fx-alignment: center; -fx-background-color: "+JoueurX.getHexColor()+";");
             space.getChildren().addAll(color,name, money, position,button);
+
         }
         else{
             Label not_player = new Label("This player is inactive");
             space.getChildren().addAll(not_player);
         }
+
+        space.setMinSize(200,500);
+        space.setMaxSize(200,500);
         return space;
     }
 
