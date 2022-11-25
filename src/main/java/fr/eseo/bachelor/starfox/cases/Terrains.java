@@ -159,8 +159,49 @@ abstract public class Terrains extends Cases{
             loyer.add(1150);
         }
 
-        else if (emplacement == 44){
+        else if (emplacement == 29){
+            loyer.add(24);
+            loyer.add(120);
+            loyer.add(360);
+            loyer.add(850);
+            loyer.add(1025);
+            loyer.add(1200);
+        }
 
+        else if (emplacement == 31 || emplacement == 32){
+            loyer.add(26);
+            loyer.add(130);
+            loyer.add(390);
+            loyer.add(900);
+            loyer.add(1100);
+            loyer.add(1275);
+        }
+
+        else if (emplacement == 34){
+            loyer.add(28);
+            loyer.add(140);
+            loyer.add(450);
+            loyer.add(1000);
+            loyer.add(1200);
+            loyer.add(1400);
+        }
+
+        else if (emplacement == 37){
+            loyer.add(35);
+            loyer.add(175);
+            loyer.add(500);
+            loyer.add(1100);
+            loyer.add(1300);
+            loyer.add(1500);
+        }
+
+        else if (emplacement == 39){
+            loyer.add(50);
+            loyer.add(200);
+            loyer.add(600);
+            loyer.add(1400);
+            loyer.add(1700);
+            loyer.add(2000);
         }
     }
     public void setEnableTerrain(boolean enable) {
