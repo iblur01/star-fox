@@ -22,6 +22,9 @@ public class Terrain_Popup {
     ArrayList<String> hotel_terrain = new ArrayList<>();
     ArrayList<String> hypotheque_terrain = new ArrayList<>();
 
+
+    public Terrain_Popup(){}
+
     public void terrain_popup(int emplacement){
 
         this.generation_terrain();
