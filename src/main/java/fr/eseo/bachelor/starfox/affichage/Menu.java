@@ -5,10 +5,7 @@ import fr.eseo.bachelor.starfox.TourDeJeu;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -16,6 +13,9 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class Menu {
     private final int WIDTH = 500;
@@ -45,14 +45,14 @@ public class Menu {
     private File fileBonD;
     private Image imageBonD;
     private ImageView imageViewBonD;
-
-
     private File fileBonG;
     private Image imageBonG;
     private ImageView imageViewBonG;
     private ImageView imageViewBonG2;
 
     private ImageView imageViewBonD2;
+
+    private boolean enable_lancement = FALSE;
 
 
 
@@ -178,6 +178,7 @@ public class Menu {
         nombreJoueur.setOnAction(event -> {
             if (nombreJoueur.getValue().equals("2 joueurs"))
             {
+                enable_lancement = TRUE;
                 output1.setGraphic(imageViewBonG);
                 output2.setGraphic(imageViewFond2);
                 output3.setGraphic(imageViewBonD);
@@ -188,6 +189,7 @@ public class Menu {
 
             else if (nombreJoueur.getValue().equals("3 joueurs"))
             {
+                enable_lancement = TRUE;
                 output1.setGraphic(imageViewBonG);
                 output2.setGraphic(imageViewBonG2);
                 output3.setGraphic(imageViewBonD);
@@ -199,6 +201,7 @@ public class Menu {
 
             else if (nombreJoueur.getValue().equals("4 joueurs"))
             {
+                enable_lancement = TRUE;
                 output1.setGraphic(imageViewBonG);
                 output2.setGraphic(imageViewBonG2);
                 output3.setGraphic(imageViewBonD);
@@ -211,8 +214,19 @@ public class Menu {
 
         start.setOnAction(e -> {
 
-            TDJ.init_TDJ(nombre_joueur);
-            stage.setScene(scene2);
+            if (enable_lancement == TRUE){
+                TDJ.init_TDJ(nombre_joueur);
+                stage.setScene(scene2);
+            }
+
+            else{
+                Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
+                popup.setTitle("WARNING");
+                popup.setHeaderText("Vous ne pouvez pas lancer une parti sans selectionner de joueur.");
+                popup.showAndWait();
+            }
+
+
         });
 
         return root;
