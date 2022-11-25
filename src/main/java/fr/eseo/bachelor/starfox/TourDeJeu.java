@@ -2,7 +2,6 @@ package fr.eseo.bachelor.starfox;
 
 import fr.eseo.bachelor.starfox.Joueurs.Joueur;
 import fr.eseo.bachelor.starfox.affichage.Plateau;
-import fr.eseo.bachelor.starfox.affichage.Terrain_Popup;
 import fr.eseo.bachelor.starfox.cases.Cases;
 import fr.eseo.bachelor.starfox.cases.Evenements;
 import fr.eseo.bachelor.starfox.cases.Terrains;
@@ -19,12 +18,10 @@ public class TourDeJeu {
     int joueur_actuel;
     int nb_max_j;
 
-    Joueur Joueur1 = new Joueur("Unknown", "#0000fe", 2);
-    Joueur Joueur2 = new Joueur("Unknown", "#ff0101", 2);
-    Joueur Joueur3 = new Joueur("Unknown", "#fcdd00", 2);
-    Joueur Joueur4 = new Joueur("Unknown", "#34623f", 2);
-
-
+    Joueur Joueur1 = new Joueur("Joueur1","#0000fe", 1);
+    Joueur Joueur2 = new Joueur("Joueur2", "#ff0101", 2);
+    Joueur Joueur3 = new Joueur("Joueur3", "#fcdd00", 3);
+    Joueur Joueur4 = new Joueur("Joueur4", "#34623f", 4);
 
     public void init_TDJ(int nb_j){
 
@@ -85,7 +82,6 @@ public class TourDeJeu {
     private void action(Joueur JoueurX, int nb_case, ArrayList<Terrains> list_t, ArrayList<Evenements> list_e){
 
         //Init fonction
-        Terrain_Popup popup_action = new Terrain_Popup();
         int type_case = which_type(list_t, list_e, nb_case);
         int placement_in_list = placement(list_t, list_e, nb_case);
         Terrains terrains;
@@ -96,12 +92,9 @@ public class TourDeJeu {
         //Giga fonction
         if (type_case == 1){
             terrains = list_t.get(placement_in_list);
-            popup_action.achat_terrain_popup(JoueurX, terrains);
         }
         else if (type_case == 2){
             evenements = list_e.get(placement_in_list);
-            JoueurX.passe_ton_tours(); //temporaire le temps de finir la fonction en dessous
-            //popup_action.achat_terrain_popup(JoueurX, evenements);
         }
         else JoueurX.passe_ton_tours();
         //
