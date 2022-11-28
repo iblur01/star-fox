@@ -29,7 +29,7 @@ public class TourDeJeu {
     Joueur Joueur4 = new Joueur("Joueur4", "#34623f", 4);
 
     public void init_TDJ(int nb_j){
-        init_PlateauLogic();
+        //init_PlateauLogic();
 
         if (nb_j>1){
             Joueur1.setEnable(true);
