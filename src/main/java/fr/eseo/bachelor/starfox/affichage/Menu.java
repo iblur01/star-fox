@@ -223,6 +223,7 @@ public class Menu {
                 Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
                 popup.setTitle("WARNING");
                 popup.setContentText("Vous ne pouvez pas lancer une parti sans selectionner de joueur.");
+
                 popup.showAndWait();
             }
 
