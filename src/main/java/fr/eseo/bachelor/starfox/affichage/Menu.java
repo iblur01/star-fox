@@ -184,7 +184,7 @@ public class Menu {
                 output3.setGraphic(imageViewBonD);
                 output4.setGraphic(imageViewFond);
                 nombre_joueur = 2;
-                TDJ.setNameAll(inputJ1.getText(),inputJ2.getText(),"","");
+
             }
 
             else if (nombreJoueur.getValue().equals("3 joueurs"))
@@ -195,7 +195,7 @@ public class Menu {
                 output3.setGraphic(imageViewBonD);
                 output4.setGraphic(imageViewFond);
                 nombre_joueur = 3;
-                TDJ.setNameAll(inputJ1.getText(),inputJ2.getText(),inputJ3.getText(),"NULL");
+
 
             }
 
@@ -207,7 +207,6 @@ public class Menu {
                 output3.setGraphic(imageViewBonD);
                 output4.setGraphic(imageViewBonD2);
                 nombre_joueur = 4;
-                TDJ.setNameAll(inputJ1.getText(),inputJ2.getText(),inputJ3.getText(),inputJ4.getText());
             }
         }
         );
@@ -217,10 +216,10 @@ public class Menu {
 
 
             if (enable_lancement == TRUE){
-                /*TDJ.init_TDJ(nombre_joueur);
+                TDJ.init_TDJ(nombre_joueur, inputJ1.getText(),inputJ2.getText(),inputJ3.getText(),inputJ4.getText());
                 stage.setScene(scene2);
 
-                TDJ.test_game();*/
+                TDJ.test_game();
 
 
             }

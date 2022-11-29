@@ -25,7 +25,7 @@ public class HelloApplication extends Application {
     private final int HEIGHT = 700;
 
     private final int WIDTHm = 500;
-    private final int HEIGHTm = 500;
+    private final int HEIGHTm = 650;
 
 
     @Override

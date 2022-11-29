@@ -21,23 +21,57 @@ public class TourDeJeu {
     int nb_max_j;
 
 
-    Joueur Joueur1 = new Joueur("Joueur1","#0000fe", 1);
-    Joueur Joueur2 = new Joueur("Joueur2", "#ff0101", 2);
-    Joueur Joueur3 = new Joueur("Joueur3", "#fcdd00", 3);
-    Joueur Joueur4 = new Joueur("Joueur4", "#34623f", 4);
+    Joueur Joueur1 = new Joueur("NULL","#0000fe", 1);
+    Joueur Joueur2 = new Joueur("NULL", "#ff0101", 2);
+    Joueur Joueur3 = new Joueur("NULL", "#fcdd00", 3);
+    Joueur Joueur4 = new Joueur("NULL", "#34623f", 4);
 
 
-    public void init_TDJ(int nb_j){
+    public void init_TDJ(int nb_j, String name1, String name2,String name3,String name4 ){
 
         if (nb_j>1){
+
             Joueur1.setEnable(true);
             Joueur2.setEnable(true);
+
+            if (name1 == "")
+            {
+                Joueur1.setName("Joueur1");
+            }
+            else if (name1 != "")
+            {
+                Joueur1.setName(name1);
+            }
+            if (name2 == "")
+            {
+                Joueur2.setName("Joueur2");
+            }
+            else if (name2 != "")
+            {
+                Joueur2.setName(name2);
+            }
         }
         if (nb_j>2){
             Joueur3.setEnable(true);
+            if (name3 == "")
+            {
+                Joueur3.setName("Joueur3");
+            }
+            else if (name3 != "")
+            {
+                Joueur3.setName(name3);
+            }
         }
         if (nb_j>3){
             Joueur4.setEnable(true);
+            if (name4 == "")
+            {
+                Joueur4.setName("Joueur4");
+            }
+            else if (name4 != "")
+            {
+                Joueur4.setName(name4);
+            }
         }
 
 
@@ -53,26 +87,27 @@ public class TourDeJeu {
         popup.showAndWait();
     }
 
-    public void test_game(){
 
-        Joueur1.lance_de();
-        Joueur1.lance_de();
-
-
-    }
 
 
 
     private void TDJ (Joueur JoueurX){
 
-        Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
-        popup.setTitle("DEBUT DE TOUR");
-        popup.setContentText("C'est au" + JoueurX.getName() + "de jouer. \nLancez les dès.");
-        popup.showAndWait();
-
         int nb_case;
 
-        if (true){ //Cas si le joueur est en prison
+        Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
+        popup.setTitle("DEBUT DE TOUR");
+        popup.setContentText("C'est à " + JoueurX.getName() + " de jouer. \nLancez les dès.");
+        popup.showAndWait();
+
+        JoueurX.lance_de();
+        System.out.println("C'est a " + JoueurX.getName() + " de jouer, il avance de " +JoueurX.getPosition() + ".");
+        nb_case = JoueurX.getPosition();
+        action(JoueurX, nb_case);
+
+
+
+        /*if (true){ //Cas si le joueur est en prison
             //faire une popup sur l'animation des dés + annonce des résultats
             JoueurX.lance_de();
             nb_case = JoueurX.getPosition();
@@ -85,7 +120,7 @@ public class TourDeJeu {
         else
         {
 
-        }
+        }*/
     }
 
     private void action(Joueur JoueurX, int nb_case){
@@ -121,14 +156,14 @@ public class TourDeJeu {
 
     }
 
+    public void test_game(){
 
-    public void setNameAll(String name1, String name2,String name3,String name4 ){
-        Joueur1.setName(name1);
-        Joueur2.setName(name2);
-        Joueur3.setName(name3);
-        Joueur4.setName(name4);
+        TDJ(Joueur1);
+        TDJ(Joueur2);
+
 
     }
+
 
     public HBox setPlateau(){
         HBox stage = new HBox();
