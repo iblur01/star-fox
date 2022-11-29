@@ -171,6 +171,14 @@ public class Joueur {
 
 
     }
+
+    public void event(){
+        if (position_joueur == 0) compte.ajouter_argent(200);
+
+        else if (position_joueur == 4) compte.retirer_argent(200);
+
+        else if (position_joueur == 38) compte.retirer_argent(100);
+    }
     //
 }
 
