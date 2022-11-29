@@ -214,12 +214,14 @@ public class Menu {
 
         start.setOnAction(e -> {
 
-            TDJ.init_TDJ(nombre_joueur);
-            stage.setScene(scene2);
 
-            /*if (enable_lancement == TRUE){
+
+            if (enable_lancement == TRUE){
                 TDJ.init_TDJ(nombre_joueur);
                 stage.setScene(scene2);
+
+                //TDJ.test_game();
+
             }
 
             else{
@@ -228,7 +230,7 @@ public class Menu {
                 popup.setContentText("Vous ne pouvez pas lancer une parti sans selectionner de joueur.");
 
                 popup.showAndWait();
-            }*/
+            }
 
 
         });

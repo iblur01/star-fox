@@ -28,6 +28,7 @@ public class TourDeJeu {
     Joueur Joueur3 = new Joueur("Joueur3", "#fcdd00", 3);
     Joueur Joueur4 = new Joueur("Joueur4", "#34623f", 4);
 
+
     public void init_TDJ(int nb_j){
         //init_PlateauLogic();
 
@@ -41,6 +42,7 @@ public class TourDeJeu {
         if (nb_j>3){
             Joueur4.setEnable(true);
         }
+        System.out.println("ok");
 
         joueur_actuel = 1;
     }
@@ -56,10 +58,8 @@ public class TourDeJeu {
 
     public void test_game(){
 
-        this.popup_joueur(Joueur1);
-        this.popup_joueur(Joueur2);
-        this.popup_joueur(Joueur3);
-        this.popup_joueur(Joueur4);
+        Joueur1.lance_de();
+
     }
 
 

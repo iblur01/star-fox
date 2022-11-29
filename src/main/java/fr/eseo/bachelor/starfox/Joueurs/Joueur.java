@@ -119,12 +119,15 @@ public class Joueur {
     public int lance_de(){
         Random random = new Random();
         int num = 1 + random.nextInt(6-1);
-        if (position_joueur >= 0 && position_joueur <= 39) avancer(num);
+        //if (position_joueur >= 0 && position_joueur <= 39) avancer(num);
+        avancer(num);
         return num;
     }
 
     public void avancer(int de){
         position_joueur = position_joueur + de ;
+        System.out.println(position_joueur);
+
         //return position_joueur;
     }
 
