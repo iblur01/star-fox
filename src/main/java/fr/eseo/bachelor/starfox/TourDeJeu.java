@@ -127,6 +127,7 @@ public class TourDeJeu {
         Chance_Popup popup_chance = new Chance_Popup();
         Commu_Popup popup_commu = new Commu_Popup();
 
+        ArrayList<Integer> list_gare;
         //
 
 

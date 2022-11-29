@@ -7,7 +7,7 @@ abstract public class Terrains extends Cases{
 
     protected int val_achat;
     protected int val_vente;
-    protected boolean enable_terrain;
+    protected int proprietaire;
 
 
 
@@ -17,7 +17,7 @@ abstract public class Terrains extends Cases{
 
     public Terrains(int emplacement, String name, int val_vente, int val_achat){
         super(emplacement, name);
-        setEnableTerrain(true);
+        setProprietaire(0);
         setVal_achat(val_achat);
         setVal_vente(val_vente);
     }
@@ -29,16 +29,16 @@ abstract public class Terrains extends Cases{
     public int getVal_vente (){
         return val_vente;
     }
-    public boolean getEnableTerrain(){
-        return enable_terrain;
+    public int getProprietaire(){
+        return proprietaire;
     }
     //
 
 
 
     //Setteur
-    public void setEnableTerrain(boolean enable) {
-        this.enable_terrain = enable;
+    public void setProprietaire(int prorietaire) {
+        this.proprietaire = proprietaire;
     }
     public void setVal_achat(int val_achat) { this.val_achat = val_achat; }
     public void setVal_vente(int val_vente) { this.val_vente = val_vente; }

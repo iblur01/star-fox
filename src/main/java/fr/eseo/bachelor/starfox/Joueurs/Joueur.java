@@ -13,17 +13,13 @@ import java.util.Random;
 
 public class Joueur {
     private String name_j;
-    private int color;
-
     private String hexColor;
     protected int position_joueur;
-    private Label label;
     private int num_joueur;
     private ArrayList<Integer> list_rue = new ArrayList<>();
     private ArrayList<Integer> list_gare = new ArrayList<>();
     private ArrayList<Integer> list_compagnie = new ArrayList<>();
     private Compte_bancaire compte = new Compte_bancaire(1500);
-
     private boolean enable = true;
 
 
@@ -33,14 +29,6 @@ public class Joueur {
     public Joueur (){}
     public Joueur(String name_j, String color, int num_joueur){
         setParam(name_j, color, num_joueur);
-        //compte = new Compte_bancaire(1500);
-
-        /*if (num_joueur < 1) num_joueur = 1;
-        else if (num_joueur > 4){
-            num_joueur = 0;
-            color = 0;
-            setName("ERROR");
-        }*/
     }
     //
 
@@ -48,9 +36,6 @@ public class Joueur {
     //geteur
     public String getName() {
         return name_j;
-    }
-    public int getColor() {
-        return color;
     }
     public int getPosition() {
         return position_joueur;
@@ -64,8 +49,8 @@ public class Joueur {
         return salaire;
 
     }
-    public ArrayList<Integer> getList_gare(){
-        return list_gare;
+    public int getNum_joueur() {
+        return num_joueur;
     }
     //
 
@@ -73,8 +58,6 @@ public class Joueur {
     //setteur
     public void setName(String name_j) {
         this.name_j = name_j;
-        label = new Label();
-        label.setText(name_j);
     }
     public void setHexColor(String color){
         this.hexColor = color;
@@ -84,15 +67,15 @@ public class Joueur {
     }
     public void setParam(String name_j, String color, int num_joueur){
         setName(name_j);
-        //setColor(color);
-        this.hexColor = color;
+        setNum_joueur(num_joueur);
         setPosition(0);
-        //setNum(num);
-        this.num_joueur =  num_joueur;
+        setEnable(true);
+        setHexColor(color);
     }
     public void setEnable(boolean state) {
         this.enable = state;
     }
+    public void setNum_joueur(int num_joueur) { this.num_joueur = num_joueur; }
     //
 
 
