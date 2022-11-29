@@ -8,18 +8,18 @@ public class Rues extends Terrains {
 
     private ArrayList<Integer> loyer = new ArrayList<>();
     private int nmbr_maison;
-
     private int prix_maison;
 
 
 
-    public Rues(int emplacement, String name) {
-        super(emplacement, name);
+    public Rues(int emplacement, String name, int val_vente, int val_achat) {
+        super(emplacement, name,  val_vente,  val_achat);
         setLoyer(emplacement);
         setPrix_maison(emplacement);
         setMaison(0);
     }
 
+    //Setteur
     public void setLoyer(int emplacement) {
 
         if (emplacement == 1){
@@ -52,12 +52,9 @@ public class Rues extends Terrains {
 
         }
     }
-
-
     public void setMaison(int maison){
         if (maison >= 0 & maison <= 5 ) this.nmbr_maison = maison;
     }
-
     public void setPrix_maison (int emplacement){
 
         if (emplacement == 1 | emplacement == 3){
@@ -68,7 +65,9 @@ public class Rues extends Terrains {
             this.prix_maison = 100;
         }
     }
+    //
 
+    //Getteur
     public int getNmbr_maison(){
         return nmbr_maison;
     }
@@ -80,7 +79,6 @@ public class Rues extends Terrains {
     public int getLoyer() {
         return loyer.get(nmbr_maison);
     }
-
-    //test
+    //
 
 }

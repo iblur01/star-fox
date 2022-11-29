@@ -127,7 +127,6 @@ public class TourDeJeu {
         Chance_Popup popup_chance = new Chance_Popup();
         Commu_Popup popup_commu = new Commu_Popup();
 
-        ArrayList <Integer> gare = JoueurX.getList_gare();
         //
 
 
@@ -148,13 +147,13 @@ public class TourDeJeu {
         else {
             int type;
             type = popup_action.achat_terrain_popup(nb_case);
-
         }
 
         //
         // /!\ faire 2 tableau contenant le numéros des cases maions et les cases evenments
 
     }
+
 
     public void test_game(){
 
