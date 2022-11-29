@@ -217,11 +217,16 @@ public class Menu {
 
 
             if (enable_lancement == TRUE){
-                TDJ.init_TDJ(nombre_joueur);
+                /*TDJ.init_TDJ(nombre_joueur);
                 stage.setScene(scene2);
 
-                //TDJ.test_game();
+                TDJ.test_game();*/
 
+                Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
+                popup.setTitle("DEBUT DE TOUR");
+                popup.setContentText("C'est au Joueur1 de jouer. \nLancez les dès.");
+
+                popup.showAndWait();
             }
 
             else{

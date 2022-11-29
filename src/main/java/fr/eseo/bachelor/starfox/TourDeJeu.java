@@ -39,7 +39,7 @@ public class TourDeJeu {
         if (nb_j>3){
             Joueur4.setEnable(true);
         }
-        System.out.println("ok");
+
 
         joueur_actuel = 1;
     }
@@ -56,6 +56,8 @@ public class TourDeJeu {
     public void test_game(){
 
         Joueur1.lance_de();
+        Joueur1.lance_de();
+
 
     }
 
