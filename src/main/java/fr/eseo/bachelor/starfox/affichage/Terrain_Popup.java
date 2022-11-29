@@ -105,7 +105,7 @@ public class Terrain_Popup {
 
     }
 
-    public void achat_terrain_popup(Joueur JoueurX, Terrains terrains){
+    public int achat_terrain_popup(int emplacement){
 
         this.generation_terrain();
         this.generation_hotel();
@@ -117,8 +117,7 @@ public class Terrain_Popup {
         this.generation_maison4();
         this.generation_hypotheque();
 
-        int emplacement = terrains.getEmplacement();
-        boolean enable_terrain = terrains.getEnableTerrain();
+        int check = 0;
 
         if (emplacement == 12 || emplacement == 28)
         {
@@ -135,21 +134,14 @@ public class Terrain_Popup {
                     "                                par les dès.\n \n" +
                     "                           Valeur Hypothécaire\n" +
                     "                                     € 75");
-            if (enable_terrain == TRUE) {
+
                 dialogC.setContentText("Voulez-vous acheter ce terrain ?");
                 Optional<ButtonType> answer = dialogC.showAndWait();
                 if(answer.get() == ButtonType.OK) {
-                    //fonction.achetercompagnie();
-                    JoueurX.acheter(terrains);
+                    check = 1;
                 } else {
 
                 }
-            }
-            else {
-                dialogC.setContentText("Ce terrain appartient au joueur");
-            }
-
-
         }
 
         else if(emplacement == 5 || emplacement == 15 || emplacement == 25 || emplacement == 35)
@@ -168,7 +160,7 @@ public class Terrain_Popup {
             Optional<ButtonType> answer = dialogC.showAndWait();
             if(answer.get() == ButtonType.OK) {
                 //fonction.acheter gare();
-                JoueurX.acheter(terrains);
+                check = 2;
             } else {
 
             }
@@ -203,14 +195,14 @@ public class Terrain_Popup {
             Optional<ButtonType> answer = dialogC.showAndWait();
             if(answer.get() == ButtonType.OK) {
                 //fonction.acheter();
-                JoueurX.acheter(terrains);
+                check = 3;
             } else {
 
             }
 
         }
 
-
+        return check;
     }
 
     private void generation_terrain(){
@@ -630,3 +622,6 @@ public class Terrain_Popup {
 
     }
 }
+
+
+// dialogC.setContentText("Ce terrain appartient au joueur");

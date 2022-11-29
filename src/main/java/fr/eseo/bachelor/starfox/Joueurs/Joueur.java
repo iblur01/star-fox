@@ -19,7 +19,9 @@ public class Joueur {
     protected int position_joueur;
     private Label label;
     private int num_joueur;
-    private ArrayList<Terrains> list_terrains_joueur = new ArrayList<>();
+    private ArrayList<Integer> list_rue = new ArrayList<>();
+    private ArrayList<Integer> list_gare = new ArrayList<>();
+    private ArrayList<Integer> list_compagnie = new ArrayList<>();
     private Compte_bancaire compte = new Compte_bancaire(1500);
 
     private boolean enable = true;
@@ -53,12 +55,6 @@ public class Joueur {
     public int getPosition() {
         return position_joueur;
     }
-    public int getNum(){
-        return num_joueur;
-    }
-    public Label getLabel() {
-        return label;
-    }
     public boolean getEnable() {
         return enable;
     }
@@ -67,6 +63,9 @@ public class Joueur {
         int salaire = compte.getArgent();
         return salaire;
 
+    }
+    public ArrayList<Integer> getList_gare(){
+        return list_gare;
     }
     //
 
@@ -77,20 +76,12 @@ public class Joueur {
         label = new Label();
         label.setText(name_j);
     }
-
     public void setHexColor(String color){
         this.hexColor = color;
     }
-
-    /*public void setColor(int color) {
-        this.color = color;
-    }*/
     public void setPosition(int position) {
         this.position_joueur = position;
     }
-    /*public void setNum(int num){
-        this.num = num;
-    }*/
     public void setParam(String name_j, String color, int num_joueur){
         setName(name_j);
         //setColor(color);
@@ -99,7 +90,6 @@ public class Joueur {
         //setNum(num);
         this.num_joueur =  num_joueur;
     }
-
     public void setEnable(boolean state) {
         this.enable = state;
     }
@@ -108,43 +98,79 @@ public class Joueur {
 
 
     //Action du joueur
-    public void acheter (Terrains terrains){
-        if ( terrains.getEnableTerrain() ){
-            list_terrains_joueur.add(terrains);
-            compte.retirer_argent(terrains.getLoyer());
-            terrains.setEnableTerrain(true);
+    public void acheter (int nb_case){
+
+        boolean check = true;
+
+        if (nb_case == 5 || nb_case == 15 || nb_case == 25 || nb_case == 35){
+            int rue;
+            for (int i = 0; i<list_gare.size(); i++){
+                rue = list_gare.get(i);
+                if (rue == nb_case){
+                    check = false;
+                }
+            }
+            if (check){
+                list_gare.add(nb_case);
+                compte.retirer_argent(200);
+            }
+        }
+
+        check =  true;
+        if (nb_case == 12 || nb_case == 28) {
+            int compagnie;
+            for (int i = 0; i<list_compagnie.size(); i++){
+                compagnie = list_compagnie.get(i);
+                if (compagnie == nb_case){
+                    check = false;
+                }
+            }
+            if (check){
+                list_compagnie.add(nb_case);
+                compte.retirer_argent(150);
+            }
         }
     }
 
     public int lance_de(){
         Random random = new Random();
-        int num = 1 + random.nextInt(6-1);
-        //if (position_joueur >= 0 && position_joueur <= 39) avancer(num);
-        avancer(num);
+        int de1 = 1 + random.nextInt(6-1);
+        int de2 = 1 + random.nextInt(6-1);
+        int num = de1 + de2;
+
+        if (position_joueur >= 0 && position_joueur <= 39){
+            avancer(num);
+        }
+
+        if ( de1 == de2){
+            avancer(num);
+        }
+
         return num;
     }
 
     public void avancer(int de){
-
+        System.out.println(position_joueur);
         position_joueur = position_joueur + de ;
 
-        //return position_joueur;
+        System.out.println(position_joueur);
 
+        //return position_joueur;
     }
 
-    public void vendre (Terrains terrains, int nb_case){
-        for (int i = 0; i<list_terrains_joueur.size(); i++){
-            if ( nb_case == terrains.getEmplacement() ){
-                list_terrains_joueur.remove(nb_case);
-                compte.ajouter_argent(terrains.getVal_vente());
-                terrains.setEnableTerrain(false);
+    public void vendre (int nb_case){
+        /*for (int i = 0; i<list_rue.size(); i++){
+            if ( nb_case == rue.getEmplacement() ){
+                list_rue.remove(nb_case);
+                compte.ajouter_argent(rue.getVal_vente());
+                rue.setEnableTerrain(false);
             }
-        }
+        }*/
     }
 
     public void acheter_maison(Terrains terrains){
 
-        int maison = terrains.getNmbr_maison();
+        /*int maison = terrains.getNmbr_maison();
 
         for (Terrains e : list_terrains_joueur){
             if ( e == terrains){
@@ -152,12 +178,12 @@ public class Joueur {
                 terrains.setMaison(maison);
                 compte.retirer_argent( terrains.getPrix_maison() );
             }
-        }
+        }*/
     }
 
     public void vendre_maison (Terrains terrains){
 
-        int maison = terrains.getNmbr_maison();
+        /*int maison = terrains.getNmbr_maison();
 
         for (Terrains e : list_terrains_joueur){
             if ( e == terrains){
@@ -165,7 +191,7 @@ public class Joueur {
                 terrains.setMaison(maison);
                 compte.ajouter_argent( terrains.getPrix_maison() );
             }
-        }
+        }*/
     }
 
     public void passe_ton_tours (){

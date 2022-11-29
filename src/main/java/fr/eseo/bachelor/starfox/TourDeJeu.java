@@ -130,6 +130,7 @@ public class TourDeJeu {
         Chance_Popup popup_chance = new Chance_Popup();
         Commu_Popup popup_commu = new Commu_Popup();
 
+        ArrayList <Integer> gare = JoueurX.getList_gare();
         //
 
 
@@ -137,7 +138,7 @@ public class TourDeJeu {
 
         if (nb_case == 0 || nb_case == 4 || nb_case == 38) JoueurX.event();
 
-        else if (nb_case == 10) JoueurX.lance_de();
+        else if (nb_case == 10) JoueurX.setPosition(50);
 
         else if (nb_case == 7 || nb_case == 22 || nb_case == 36){ //case chance
             popup_chance.afficher_popup(nb_case);
@@ -148,7 +149,9 @@ public class TourDeJeu {
         }
 
         else {
-            popup_action.terrain_popup(nb_case);
+            int type;
+            type = popup_action.achat_terrain_popup(nb_case);
+
         }
 
         //
