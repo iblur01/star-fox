@@ -95,10 +95,7 @@ public class TourDeJeu {
 
         int nb_case;
 
-        Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
-        popup.setTitle("DEBUT DE TOUR");
-        popup.setContentText("C'est à " + JoueurX.getName() + " de jouer. \nLancez les dès.");
-        popup.showAndWait();
+        popup_joueur(JoueurX);
 
         JoueurX.lance_de();
         System.out.println("C'est a " + JoueurX.getName() + " de jouer, il avance de " +JoueurX.getPosition() + ".");
