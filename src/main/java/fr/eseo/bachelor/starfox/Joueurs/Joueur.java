@@ -16,9 +16,9 @@ public class Joueur {
     private String hexColor;
     protected int position_joueur;
     private int num_joueur;
-    private ArrayList<Integer> list_rue = new ArrayList<>();
-    private ArrayList<Integer> list_gare = new ArrayList<>();
-    private ArrayList<Integer> list_compagnie = new ArrayList<>();
+    private ArrayList<Rues> list_rue = new ArrayList<>();
+    private ArrayList<Gares> list_gare = new ArrayList<>();
+    private ArrayList<Compagnies> list_compagnie = new ArrayList<>();
     private Compte_bancaire compte = new Compte_bancaire(1500);
     private boolean enable = true;
 
@@ -81,37 +81,25 @@ public class Joueur {
 
 
     //Action du joueur
-    public void acheter (int nb_case){
-
-        boolean check = true;
-
-        if (nb_case == 5 || nb_case == 15 || nb_case == 25 || nb_case == 35){
-            int rue;
-            for (int i = 0; i<list_gare.size(); i++){
-                rue = list_gare.get(i);
-                if (rue == nb_case){
-                    check = false;
-                }
-            }
-            if (check){
-                list_gare.add(nb_case);
-                compte.retirer_argent(200);
-            }
+    public void acheter (Rues rue){
+        if (rue.getProprietaire() != 0){
+            list_rue.add(rue);
+            compte.retirer_argent(rue.getVal_vente());
+            rue.setProprietaire(num_joueur);
         }
-
-        check =  true;
-        if (nb_case == 12 || nb_case == 28) {
-            int compagnie;
-            for (int i = 0; i<list_compagnie.size(); i++){
-                compagnie = list_compagnie.get(i);
-                if (compagnie == nb_case){
-                    check = false;
-                }
-            }
-            if (check){
-                list_compagnie.add(nb_case);
-                compte.retirer_argent(150);
-            }
+    }
+    public void acheter (Gares gare){
+        if (gare.getProprietaire() != 0){
+            list_gare.add(gare);
+            compte.retirer_argent(gare.getVal_vente());
+            gare.setProprietaire(num_joueur);
+        }
+    }
+    public void acheter (Compagnies compagnie){
+        if (compagnie.getProprietaire() != 0){
+            list_compagnie.add(compagnie);
+            compte.retirer_argent(compagnie.getVal_vente());
+            compagnie.setProprietaire(num_joueur);
         }
     }
 

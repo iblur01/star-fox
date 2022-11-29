@@ -38,7 +38,7 @@ abstract public class Terrains extends Cases{
 
     //Setteur
     public void setProprietaire(int prorietaire) {
-        this.proprietaire = proprietaire;
+        if (prorietaire >= 1 && prorietaire <= 4) this.proprietaire = prorietaire;
     }
     public void setVal_achat(int val_achat) { this.val_achat = val_achat; }
     public void setVal_vente(int val_vente) { this.val_vente = val_vente; }
