@@ -12,7 +12,7 @@ public class Rues extends Terrains {
 
 
 
-    public Rues(int emplacement, String name, int val_vente, int val_achat) {
+    public Rues(int emplacement, String name, int val_achat, int val_vente) {
         super(emplacement, name,  val_vente,  val_achat);
         setLoyer(emplacement);
         setPrix_maison(emplacement);
