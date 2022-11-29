@@ -64,8 +64,13 @@ public class TourDeJeu {
 
 
     private void TDJ (Joueur JoueurX){
-        int nb_case;
 
+        Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
+        popup.setTitle("DEBUT DE TOUR");
+        popup.setContentText("C'est au" + JoueurX.getName() + "de jouer. \nLancez les dès.");
+        popup.showAndWait();
+
+        int nb_case;
 
         if (true){ //Cas si le joueur est en prison
             //faire une popup sur l'animation des dés + annonce des résultats
