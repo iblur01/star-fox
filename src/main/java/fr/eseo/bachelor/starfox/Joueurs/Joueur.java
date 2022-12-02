@@ -87,21 +87,21 @@ public class Joueur {
         compte.retirer_argent(rue.getVal_vente());
         rue.setEnable(false);
         rue.setProprietaire(num_joueur);
-        System.out.println("Le joueur" + getName() + " a la rue" + rue.getName());
+        System.out.println("Le joueur" + getName() + " achete la rue " + rue.getName());
     }
     public void acheter (Gares gare){
             list_gare.add(gare);
             compte.retirer_argent(gare.getVal_vente());
             gare.setEnable(false);
             gare.setProprietaire(num_joueur);
-            System.out.println("Le joueur" + getName() + " achete la gare" + gare.getName());
+            System.out.println("Le joueur" + getName() + " achete la gare " + gare.getName());
     }
     public void acheter (Compagnies compagnie){
         list_compagnie.add(compagnie);
         compte.retirer_argent(compagnie.getVal_achat());
         compagnie.setEnable(false);
         compagnie.setProprietaire(num_joueur);
-        System.out.println("Le joueur" + getName() + " achete la compagnie" + compagnie.getName());
+        System.out.println("Le joueur" + getName() + " achete la compagnie " + compagnie.getName());
     }
     public void acheter_maison(Terrains terrains){
 
