@@ -17,6 +17,9 @@ import java.util.Random;
 
 public class TourDeJeu {
     Plateau plateau = new Plateau();
+
+    Logic_Plateau logic_plateau =  new Logic_Plateau();
+    ArrayList<Compagnies> list_compagnies = new ArrayList<>();
     int joueur_actuel;
     int nb_max_j;
 
@@ -28,6 +31,7 @@ public class TourDeJeu {
 
 
     public void init_TDJ(int nb_j, String name1, String name2,String name3,String name4 ){
+
 
 
         if (nb_j>1){
@@ -151,6 +155,10 @@ public class TourDeJeu {
         else {
             int type;
             type = popup_action.achat_terrain_popup(nb_case);
+            if (type == 1){
+                /*compagnie = list_compagnies.get(nb_case);
+                JoueurX.acheter(compagnie);*/
+            }
         }
 
         //

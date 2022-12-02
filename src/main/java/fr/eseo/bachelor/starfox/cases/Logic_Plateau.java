@@ -1,6 +1,11 @@
 package fr.eseo.bachelor.starfox.cases;
 
+import java.util.ArrayList;
+
 public class Logic_Plateau {
+
+
+    ArrayList<Compagnies> list_compagnies = new ArrayList<>();
 
     public void init_cases(){
         init_compagnies();
@@ -40,9 +45,13 @@ public class Logic_Plateau {
         Gares gare2 = new Gares(15,"Bar du Maestro",200,100);
         Gares gare3 = new Gares(25,"Bar du James Joyces",200,100);
         Gares gare4 = new Gares(35,"Bar du Delirium",200,100);
+
+
     }
     public void init_compagnies(){
         Compagnies compagnie1 = new Compagnies(12, "La 7ème Compagnie",150,75);
         Compagnies compagnie2 = new Compagnies(28, "La Compagnie Créole",150,75);
+        list_compagnies.add(compagnie1);
+        list_compagnies.add(compagnie2);
     }
 }
