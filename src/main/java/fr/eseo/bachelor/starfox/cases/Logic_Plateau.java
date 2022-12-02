@@ -6,11 +6,22 @@ public class Logic_Plateau {
 
 
     ArrayList<Compagnies> list_compagnies = new ArrayList<>();
+    ArrayList<Gares> list_gares = new ArrayList<>();
+    ArrayList<Rues> list_rues = new ArrayList<>();
 
     public void init_cases(){
         init_compagnies();
         init_rues();
         init_gares();
+    }
+    public ArrayList<Rues> getRues () {
+        return list_rues;
+    }
+    public ArrayList<Gares> getGares () {
+        return list_gares;
+    }
+    public ArrayList<Compagnies> getCompagnies () {
+        return list_compagnies;
     }
 
     public void init_rues(){
@@ -37,6 +48,30 @@ public class Logic_Plateau {
         Rues rue20 = new Rues(34,"Terra Botanica",320,160);
         Rues rue21 = new Rues(37,"Le Chateau d'Angers",350,175);
         Rues rue22 = new Rues(39,"ESEO",400,200);
+        list_rues.add(rue1);
+        list_rues.add(rue2);
+        list_rues.add(rue3);
+        list_rues.add(rue4);
+        list_rues.add(rue5);
+        list_rues.add(rue6);
+        list_rues.add(rue7);
+        list_rues.add(rue8);
+        list_rues.add(rue9);
+        list_rues.add(rue10);
+        list_rues.add(rue11);
+        list_rues.add(rue12);
+        list_rues.add(rue13);
+        list_rues.add(rue14);
+        list_rues.add(rue15);
+        list_rues.add(rue16);
+        list_rues.add(rue17);
+        list_rues.add(rue18);
+        list_rues.add(rue19);
+        list_rues.add(rue20);
+        list_rues.add(rue21);
+        list_rues.add(rue22);
+
+
 
     }
     public void init_gares(){
@@ -45,6 +80,10 @@ public class Logic_Plateau {
         Gares gare2 = new Gares(15,"Bar du Maestro",200,100);
         Gares gare3 = new Gares(25,"Bar du James Joyces",200,100);
         Gares gare4 = new Gares(35,"Bar du Delirium",200,100);
+        list_gares.add(gare1);
+        list_gares.add(gare2);
+        list_gares.add(gare3);
+        list_gares.add(gare4);
 
 
     }
