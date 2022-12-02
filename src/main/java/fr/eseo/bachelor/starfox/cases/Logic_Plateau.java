@@ -36,12 +36,13 @@ public class Logic_Plateau {
     }
     public void init_gares(){
 
-        //Gares gare1 = new Gares(4,"");
-
-
+        Gares gare1 = new Gares(5,"Bar du Tonton Foch",200,100);
+        Gares gare2 = new Gares(15,"Bar du Maestro",200,100);
+        Gares gare3 = new Gares(25,"Bar du James Joyces",200,100);
+        Gares gare4 = new Gares(35,"Bar du Delirium",200,100);
     }
     public void init_compagnies(){
-
-
+        Compagnies compagnie1 = new Compagnies(12, "La 7ème Compagnie",150,75);
+        Compagnies compagnie2 = new Compagnies(28, "La Compagnie Créole",150,75);
     }
 }
