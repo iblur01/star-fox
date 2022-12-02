@@ -9,14 +9,16 @@ public class Rues extends Terrains {
     private ArrayList<Integer> loyer = new ArrayList<>();
     private int nmbr_maison;
     private int prix_maison;
+    private int couleur;
 
 
 
-    public Rues(int emplacement, String name, int val_achat, int val_vente) {
+    public Rues(int emplacement, String name, int val_achat, int val_vente, int couleur) {
         super(emplacement, name,  val_vente,  val_achat);
         setLoyer(emplacement);
         setPrix_maison(emplacement);
         setMaison(0);
+        setCouleur(couleur);
     }
 
     //Setteur
@@ -65,20 +67,22 @@ public class Rues extends Terrains {
             this.prix_maison = 100;
         }
     }
+    public void setCouleur (int couleur){
+        this.couleur = couleur;
+    }
     //
 
     //Getteur
     public int getNmbr_maison(){
         return nmbr_maison;
     }
-
     public int getPrix_maison (){
         return prix_maison;
     }
-
     public int getLoyer() {
         return loyer.get(nmbr_maison);
     }
+    public  int getCouleur () { return couleur; }
     //
 
 }

@@ -52,6 +52,7 @@ public class Joueur {
     public int getNum_joueur() {
         return num_joueur;
     }
+    public ArrayList<Compagnies> getList_compagnie() {return list_compagnie;}
     //
 
 
@@ -82,26 +83,39 @@ public class Joueur {
 
     //Action du joueur
     public void acheter (Rues rue){
-        if (rue.getProprietaire() != 0){
-            list_rue.add(rue);
-            compte.retirer_argent(rue.getVal_vente());
-            rue.setProprietaire(num_joueur);
-        }
+        list_rue.add(rue);
+        compte.retirer_argent(rue.getVal_vente());
+        rue.setEnable(false);
+        rue.setProprietaire(num_joueur);
+        System.out.println("Le joueur" + getName() + " a la rue" + rue.getName());
     }
     public void acheter (Gares gare){
-        if (gare.getProprietaire() != 0){
             list_gare.add(gare);
             compte.retirer_argent(gare.getVal_vente());
+            gare.setEnable(false);
             gare.setProprietaire(num_joueur);
-        }
+            System.out.println("Le joueur" + getName() + " achete la gare" + gare.getName());
     }
     public void acheter (Compagnies compagnie){
-        if (compagnie.getProprietaire() != 0){
-            list_compagnie.add(compagnie);
-            compte.retirer_argent(compagnie.getVal_vente());
-            compagnie.setProprietaire(num_joueur);
-        }
+        list_compagnie.add(compagnie);
+        compte.retirer_argent(compagnie.getVal_achat());
+        compagnie.setEnable(false);
+        compagnie.setProprietaire(num_joueur);
+        System.out.println("Le joueur" + getName() + " achete la compagnie" + compagnie.getName());
     }
+    public void acheter_maison(Terrains terrains){
+
+        /*int maison = terrains.getNmbr_maison();
+
+        for (Terrains e : list_terrains_joueur){
+            if ( e == terrains){
+                maison = maison + 1;
+                terrains.setMaison(maison);
+                compte.retirer_argent( terrains.getPrix_maison() );
+            }
+        }*/
+    }
+
 
     public int lance_de(){
         Random random = new Random();
@@ -119,15 +133,15 @@ public class Joueur {
 
         return num;
     }
-
     public void avancer(int de){
-        System.out.println(position_joueur);
+        //System.out.println(position_joueur);
         position_joueur = position_joueur + de ;
 
-        System.out.println(position_joueur);
+        //System.out.println(position_joueur);
 
         //return position_joueur;
     }
+
 
     public void vendre (int nb_case){
         /*for (int i = 0; i<list_rue.size(); i++){
@@ -138,20 +152,6 @@ public class Joueur {
             }
         }*/
     }
-
-    public void acheter_maison(Terrains terrains){
-
-        /*int maison = terrains.getNmbr_maison();
-
-        for (Terrains e : list_terrains_joueur){
-            if ( e == terrains){
-                maison = maison + 1;
-                terrains.setMaison(maison);
-                compte.retirer_argent( terrains.getPrix_maison() );
-            }
-        }*/
-    }
-
     public void vendre_maison (Terrains terrains){
 
         /*int maison = terrains.getNmbr_maison();
@@ -165,17 +165,21 @@ public class Joueur {
         }*/
     }
 
+
     public void passe_ton_tours (){
-
-
     }
-
     public void event(){
         if (position_joueur == 0) compte.ajouter_argent(200);
 
         else if (position_joueur == 4) compte.retirer_argent(200);
 
         else if (position_joueur == 38) compte.retirer_argent(100);
+    }
+    public void payer(int apayer){
+        compte.retirer_argent(apayer);
+    }
+    public void recevoir (int montant){
+        compte.ajouter_argent(montant);
     }
     //
 }

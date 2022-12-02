@@ -8,6 +8,7 @@ abstract public class Terrains extends Cases{
     protected int val_achat;
     protected int val_vente;
     protected int proprietaire;
+    protected boolean enable = true;
 
 
 
@@ -32,15 +33,19 @@ abstract public class Terrains extends Cases{
     public int getProprietaire(){
         return proprietaire;
     }
+    public boolean getEnable(){
+        return enable;
+    }
     //
 
 
 
     //Setteur
     public void setProprietaire(int prorietaire) {
-        if (prorietaire >= 1 && prorietaire <= 4) this.proprietaire = prorietaire;
+        this.proprietaire = prorietaire;
     }
     public void setVal_achat(int val_achat) { this.val_achat = val_achat; }
     public void setVal_vente(int val_vente) { this.val_vente = val_vente; }
+    public void  setEnable(boolean enable){ this.enable = enable; }
 
 }
