@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class TourDeJeu {
     Plateau plateau = new Plateau();
 
@@ -167,10 +170,28 @@ public class TourDeJeu {
     }
 
 
-    public void test_game(){
+    public void test_game(int nb_j){
 
-        TDJ(Joueur1);
-        TDJ(Joueur2);
+        boolean win = FALSE;
+        int tour = 0;
+
+        while (win == FALSE){
+
+
+            TDJ(Joueur1);
+            TDJ(Joueur2);
+            TDJ(Joueur3);
+            TDJ(Joueur4);
+
+            System.out.println("\nTour numero" + tour + ".");
+            tour ++;
+
+            if (tour == 3){
+                win = TRUE;
+            }
+        }
+
+
 
 
     }
