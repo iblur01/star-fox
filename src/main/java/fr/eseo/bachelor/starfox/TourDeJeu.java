@@ -182,7 +182,7 @@ public class TourDeJeu {
             logic_communaute.action_carte(num_carte, JoueurX);
             System.out.println("Le joueur" + JoueurX.getName() + " est sur une case communaute");
         }
-
+        //
         else {
             int type;
             type = popup_action.achat_terrain_popup(nb_case);
