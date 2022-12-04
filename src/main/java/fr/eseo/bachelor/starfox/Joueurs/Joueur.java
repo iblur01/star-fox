@@ -14,13 +14,13 @@ import java.util.Random;
 public class Joueur {
     private String name_j;
     private String hexColor;
-    protected int position_joueur;
+    protected int position_joueur = 0;
     private int num_joueur;
     private ArrayList<Rues> list_rue = new ArrayList<>();
     private ArrayList<Gares> list_gare = new ArrayList<>();
     private ArrayList<Compagnies> list_compagnie = new ArrayList<>();
     private Compte_bancaire compte = new Compte_bancaire(1500);
-    private boolean enable = true;
+    private boolean enable = false;
 
 
 

@@ -54,6 +54,8 @@ public class Menu {
 
     private boolean enable_lancement = FALSE;
 
+    private HBox SceneTwo = new HBox();
+
 
 
 
@@ -68,7 +70,14 @@ public class Menu {
         Label output3 = new Label();
         Label output4 = new Label();
 
-        Scene scene2 = new Scene(TDJ.setPlateau(), WIDTH, HEIGHT);
+
+        SceneTwo = TDJ.setPlateau();
+        SceneTwo.setOnMouseMoved(event -> SceneTwo = TDJ.setPlateau());
+        Scene scene2 = new Scene(SceneTwo, WIDTH, HEIGHT);
+
+
+
+
         stage.setScene(scene2);
         root = new GridPane();
         root.setStyle("-fx-background-color:lightblue");
@@ -227,7 +236,7 @@ public class Menu {
             else{
                 Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
                 popup.setTitle("WARNING");
-                popup.setContentText("Vous ne pouvez pas lancer une parti sans selectionner de joueur.");
+                popup.setContentText("Vous ne pouvez pas lancer une partie sans selectionner de joueur.");
 
                 popup.showAndWait();
             }

@@ -32,10 +32,10 @@ public class TourDeJeu {
     private int nb_max_j;
 
 
-    Joueur Joueur1 = new Joueur("NULL","#0000fe", 1);
-    Joueur Joueur2 = new Joueur("NULL", "#ff0101", 2);
-    Joueur Joueur3 = new Joueur("NULL", "#fcdd00", 3);
-    Joueur Joueur4 = new Joueur("NULL", "#34623f", 4);
+    Joueur Joueur1 = new Joueur("Joueur1","#0000fe", 1);
+    Joueur Joueur2 = new Joueur("Joueur2", "#ff0101", 2);
+    Joueur Joueur3 = new Joueur("Joueur3", "#fcdd00", 3);
+    Joueur Joueur4 = new Joueur("Joueur4", "#34623f", 4);
 
 
     public void init_TDJ(int nb_j, String name1, String name2,String name3,String name4 ){
@@ -107,6 +107,11 @@ public class TourDeJeu {
 
 
     private void TDJ (Joueur JoueurX){
+
+        Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
+        popup.setTitle("DEBUT DE TOUR");
+        popup.setContentText("C'est au" + JoueurX.getName() + "de jouer. \nLancez les dès.");
+        popup.showAndWait();
 
         int nb_case;
         popup_joueur(JoueurX);
