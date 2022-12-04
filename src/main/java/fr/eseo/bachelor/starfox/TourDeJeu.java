@@ -26,6 +26,8 @@ public class TourDeJeu {
     private ArrayList<Compagnies> list_compagnies = logic_plateau.getCompagnies();
     private ArrayList<Gares> list_gares = logic_plateau.getGares();
     private ArrayList<Rues> list_rues = logic_plateau.getRues();
+    private Chance logic_chance = new Chance();
+    private Communaute logic_communaute = new Communaute();
     private int joueur_actuel;
     private int nb_max_j;
 
@@ -161,12 +163,18 @@ public class TourDeJeu {
         }
 
         else if (nb_case == 7 || nb_case == 22 || nb_case == 36){ //case chance
+            Random random = new Random();
+            int num_carte =  0 + random.nextInt(15-0);
             popup_chance.afficher_popup(nb_case);
+            logic_chance.action_carte(num_carte, JoueurX);
             System.out.println("Le joueur" + JoueurX.getName() + " est sur une case chance");
         }
 
         else if (nb_case == 2 || nb_case == 17 || nb_case == 33) { //case communaute
+            Random random = new Random();
+            int num_carte =  0 + random.nextInt(15-0);
             popup_commu.afficher_popup(nb_case);
+            logic_communaute.action_carte(num_carte, JoueurX);
             System.out.println("Le joueur" + JoueurX.getName() + " est sur une case communaute");
         }
 
