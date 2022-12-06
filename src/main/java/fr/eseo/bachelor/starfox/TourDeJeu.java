@@ -191,7 +191,7 @@ public class TourDeJeu {
                 for (int i = 0; i<list_compagnies.size(); i++){
                     compagnie = list_compagnies.get(i);
                     if (compagnie.getEmplacement() == nb_case){
-                        if(!compagnie.getEnable()){
+                        if(compagnie.getEnable() == false){
                             fairePayerCompagnies(compagnie, JoueurX, de);
                         }
                         else JoueurX.acheter(compagnie);
@@ -204,7 +204,7 @@ public class TourDeJeu {
                 for (int j = 0; j<list_gares.size(); j++){
                     gare = list_gares.get(j);
                     if (gare.getEmplacement() == nb_case){
-                        if (!gare.getEnable()){
+                        if (gare.getEnable() == false){
                             fairePayerGares(gare, JoueurX);
                         }
                         else JoueurX.acheter(gare);
@@ -217,7 +217,7 @@ public class TourDeJeu {
                 for (int k = 0; k<list_rues.size(); k++){
                     rue = list_rues.get(k);
                     if (rue.getEmplacement() == nb_case){
-                        if (!rue.getEnable()){
+                        if (rue.getEnable() == false){
                             fairePayerRue(rue, JoueurX);
                         }
                         else JoueurX.acheter(rue);
@@ -235,27 +235,23 @@ public class TourDeJeu {
     public void fairePayerGares(Gares gare_actuel, Joueur JoueurX){
         int montant = 0;
 
+        montant = cmb_gare(gare_actuel);
         if (gare_actuel.getProprietaire() == 1){
-            montant = cmb_gare(gare_actuel);
+
             Joueur1.recevoir(montant);
-            JoueurX.payer(montant);
         }
         else if (gare_actuel.getProprietaire() == 2){
-            montant = cmb_gare(gare_actuel);
             Joueur2.recevoir(montant);
-            JoueurX.payer(montant);
         }
         else if (gare_actuel.getProprietaire() == 3){
-            montant = cmb_gare(gare_actuel);
             Joueur3.recevoir(montant);
-            JoueurX.payer(montant);
         }
         else if (gare_actuel.getProprietaire() == 4){
-            montant = cmb_gare(gare_actuel);
             Joueur4.recevoir(montant);
-            JoueurX.payer(montant);
         }
 
+        System.out.println("Le joueur " + JoueurX.getName() + " doit payer " + montant);
+        JoueurX.payer(montant);
     }
     private int cmb_gare (Gares gare_actuel){
         int num = 0;
@@ -290,6 +286,8 @@ public class TourDeJeu {
         else if (compagnie_actuel.getProprietaire() == 4){
             Joueur4.recevoir(montant);
         }
+
+        System.out.println("Le joueur " + JoueurX.getName() + " doit payer " + montant);
         JoueurX.payer(montant);
     }
     private int cmb_compagnie(Compagnies compagnie_actuel, int de){
@@ -327,6 +325,8 @@ public class TourDeJeu {
         else if (rue_actuel.getProprietaire() == 4){
             Joueur4.recevoir(montant);
         }
+
+        System.out.println("Le joueur " + JoueurX.getName() + " doit payer " + montant);
         JoueurX.payer(montant);
     }
     private int cmb_rue(Rues rue_actuel){
@@ -360,18 +360,26 @@ public class TourDeJeu {
         boolean win = FALSE;
         int tour = 0;
 
+        Joueur2.acheter(list_gares.get(0));
+        Joueur2.acheter(list_gares.get(1));
+        Joueur2.acheter(list_gares.get(2));
+        Joueur2.acheter(list_gares.get(3));
+
+        Joueur2.acheter((list_rues.get(0)));
+        Joueur2.acheter((list_rues.get(1)));
+        Joueur2.acheter((list_rues.get(2)));
+        Joueur2.acheter((list_rues.get(3)));
+        Joueur2.acheter((list_rues.get(4)));
+
         while (win == FALSE){
 
 
             TDJ(Joueur1);
-            TDJ(Joueur2);
-            TDJ(Joueur3);
-            TDJ(Joueur4);
 
             System.out.println("\nTour numero" + tour + ".");
             tour ++;
 
-            if (tour == 5) win = TRUE;
+            if (tour == 3) win = TRUE;
         }
 
 

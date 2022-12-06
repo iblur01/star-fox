@@ -84,14 +84,14 @@ public class Joueur {
     //Action du joueur
     public void acheter (Rues rue){
         list_rue.add(rue);
-        compte.retirer_argent(rue.getVal_vente());
+        compte.retirer_argent(rue.getVal_achat());
         rue.setEnable(false);
         rue.setProprietaire(num_joueur);
         System.out.println("Le joueur" + getName() + " achete la rue " + rue.getName());
     }
     public void acheter (Gares gare){
             list_gare.add(gare);
-            compte.retirer_argent(gare.getVal_vente());
+            compte.retirer_argent(gare.getVal_achat());
             gare.setEnable(false);
             gare.setProprietaire(num_joueur);
             System.out.println("Le joueur" + getName() + " achete la gare " + gare.getName());
