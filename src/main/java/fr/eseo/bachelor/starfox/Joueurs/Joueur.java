@@ -127,10 +127,6 @@ public class Joueur {
             avancer(num);
         }
 
-        if ( de1 == de2){
-            avancer(num);
-        }
-
         return num;
     }
     public void avancer(int de){

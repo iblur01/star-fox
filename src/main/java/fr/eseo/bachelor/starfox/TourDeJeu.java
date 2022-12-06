@@ -116,10 +116,10 @@ public class TourDeJeu {
             int de;
 
             de = JoueurX.lance_de();
-            System.out.println("C'est a " + JoueurX.getName() + " Il est case " +JoueurX.getPosition() + ".");
+            /*de = 7;
+            JoueurX.avancer(7);*/ //pratique pour le debug
             nb_case = JoueurX.getPosition();
             action(JoueurX, nb_case, de);
-            System.out.println("C'est a " + JoueurX.getName() + " ,Compte: " + JoueurX.getCompte());
         }
 
         else {
@@ -165,20 +165,17 @@ public class TourDeJeu {
 
         if (nb_case == 0 || nb_case == 4 || nb_case == 38){
             JoueurX.event();
-            System.out.println("Le joueur" + JoueurX.getName() + " est sur une case event");
         }
 
         else if (nb_case == 10){
             JoueurX.setPosition(50);
-            System.out.println("Le joueur" + JoueurX.getName() + " est sur la prison");
         }
 
         else if (nb_case == 7 || nb_case == 22 || nb_case == 36){ //case chance
             Random random = new Random();
             int num_carte =  0 + random.nextInt(15-0);
-            popup_chance.afficher_popup(nb_case);
+            popup_chance.afficher_popup(num_carte);
             logic_chance.action_carte(num_carte, JoueurX);
-            System.out.println("Le joueur" + JoueurX.getName() + " est sur une case chance");
         }
 
         else if (nb_case == 2 || nb_case == 17 || nb_case == 33) { //case communaute
@@ -186,14 +183,12 @@ public class TourDeJeu {
             int num_carte =  0 + random.nextInt(15-0);
             popup_commu.afficher_popup(nb_case);
             logic_communaute.action_carte(num_carte, JoueurX);
-            System.out.println("Le joueur" + JoueurX.getName() + " est sur une case communaute");
         }
         //
         else {
             int type = wichType(nb_case);
 
             if (type == 1){
-                System.out.println("Le joueur" + JoueurX.getName() + " est sur une compagnie");
                 for (int i = 0; i<list_compagnies.size(); i++){
                     compagnie = list_compagnies.get(i);
                     if (compagnie.getEmplacement() == nb_case){
@@ -209,7 +204,6 @@ public class TourDeJeu {
             }
 
             else if (type == 2){
-                System.out.println("Le joueur" + JoueurX.getName() + " est sur une gare");
                 for (int j = 0; j<list_gares.size(); j++){
                     gare = list_gares.get(j);
                     if (gare.getEmplacement() == nb_case){
@@ -225,7 +219,6 @@ public class TourDeJeu {
             }
 
             else if (type == 3){
-                System.out.println("Le joueur" + JoueurX.getName() + " est sur une rue");
                 for (int k = 0; k<list_rues.size(); k++){
                     rue = list_rues.get(k);
                     if (rue.getEmplacement() == nb_case){
@@ -247,6 +240,13 @@ public class TourDeJeu {
 
     }
 
+    private int fonctionPuissance(int base, int exponent) {
+        int result = 1;
+        for (int i = 0; i < exponent; i++) {
+            result = base * result;
+        }
+        return result;
+    }
 
     private int wichType (int nb_case){
 
@@ -265,12 +265,11 @@ public class TourDeJeu {
         return check;
     }
 
-    public void fairePayerGares(Gares gare_actuel, Joueur JoueurX){
+    private void fairePayerGares(Gares gare_actuel, Joueur JoueurX){
         int montant = 0;
 
         montant = cmb_gare(gare_actuel);
         if (gare_actuel.getProprietaire() == 1){
-
             Joueur1.recevoir(montant);
         }
         else if (gare_actuel.getProprietaire() == 2){
@@ -283,7 +282,6 @@ public class TourDeJeu {
             Joueur4.recevoir(montant);
         }
 
-        System.out.println("Le joueur " + JoueurX.getName() + " doit payer " + montant);
         JoueurX.payer(montant);
     }
     private int cmb_gare (Gares gare_actuel){
@@ -298,7 +296,7 @@ public class TourDeJeu {
             }
         }
 
-        apayer = 25*2^num;
+        apayer = 25*fonctionPuissance(2, (num - 1));
 
         return apayer;
     }
@@ -320,7 +318,6 @@ public class TourDeJeu {
             Joueur4.recevoir(montant);
         }
 
-        System.out.println("Le joueur " + JoueurX.getName() + " doit payer " + montant);
         JoueurX.payer(montant);
     }
     private int cmb_compagnie(Compagnies compagnie_actuel, int de){
@@ -359,7 +356,6 @@ public class TourDeJeu {
             Joueur4.recevoir(montant);
         }
 
-        System.out.println("Le joueur " + JoueurX.getName() + " doit payer " + montant);
         JoueurX.payer(montant);
     }
     private int cmb_rue(Rues rue_actuel){
@@ -382,7 +378,12 @@ public class TourDeJeu {
             }
         }
 
-        if (listRues_couleur.size() == num) apayer = (rue_actuel.getLoyer() * 2);
+        if (listRues_couleur.size() == num){
+            apayer = (rue_actuel.getLoyer() * 2);
+        }
+        else{
+            apayer = rue_actuel.getLoyer();
+        }
 
         return apayer;
     }
@@ -400,27 +401,21 @@ public class TourDeJeu {
 
         Joueur2.acheter((list_rues.get(0)));
         Joueur2.acheter((list_rues.get(1)));
-        Joueur2.acheter((list_rues.get(2)));
-        Joueur2.acheter((list_rues.get(3)));
-        Joueur2.acheter((list_rues.get(4)));
-        Joueur2.acheter((list_rues.get(5)));
-        Joueur2.acheter((list_rues.get(6)));
-        Joueur2.acheter((list_rues.get(7)));
-        Joueur2.acheter((list_rues.get(8)));
-        Joueur2.acheter((list_rues.get(9)));
-        Joueur2.acheter((list_rues.get(10)));
-        Joueur2.acheter((list_rues.get(11)));
-        Joueur2.acheter((list_rues.get(12)));
+
+        Joueur2.acheter(list_compagnies.get(0));
+        Joueur2.acheter(list_compagnies.get(1));
+
 
         while (win == FALSE){
 
-
+            System.out.println("Compte : " + Joueur1.getCompte());
             TDJ(Joueur1);
+            System.out.println("Compte : " + Joueur1.getCompte());
 
             System.out.println("\nTour numero" + tour + ".");
             tour ++;
 
-            if (tour == 3) win = TRUE;
+            if (tour == 1) win = TRUE;
         }
 
 
