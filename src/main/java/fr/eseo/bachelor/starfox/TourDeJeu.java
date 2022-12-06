@@ -108,20 +108,25 @@ public class TourDeJeu {
 
     private void TDJ (Joueur JoueurX){
 
-        Alert popup = new Alert(Alert.AlertType.NONE,"default Dialog", ButtonType.OK);
-        popup.setTitle("DEBUT DE TOUR");
-        popup.setContentText("C'est au" + JoueurX.getName() + "de jouer. \nLancez les dès.");
-        popup.showAndWait();
+        if (JoueurX.getEnable() == TRUE){
 
-        int nb_case;
-        popup_joueur(JoueurX);
-        int de;
+            int nb_case;
+            popup_joueur(JoueurX);
+            int de;
 
-        de = JoueurX.lance_de();
-        System.out.println("C'est a " + JoueurX.getName() + " Il est case " +JoueurX.getPosition() + ".");
-        nb_case = JoueurX.getPosition();
-        action(JoueurX, nb_case, de);
-        System.out.println("C'est a " + JoueurX.getName() + " ,Compte: " + JoueurX.getCompte());
+            de = JoueurX.lance_de();
+            System.out.println("C'est a " + JoueurX.getName() + " Il est case " +JoueurX.getPosition() + ".");
+            nb_case = JoueurX.getPosition();
+            action(JoueurX, nb_case, de);
+            System.out.println("C'est a " + JoueurX.getName() + " ,Compte: " + JoueurX.getCompte());
+        }
+
+        else {
+
+
+        }
+
+
 
 
 
