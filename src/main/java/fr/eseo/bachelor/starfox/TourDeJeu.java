@@ -189,8 +189,8 @@ public class TourDeJeu {
         }
         //
         else {
-            int type;
-            type = popup_action.achat_terrain_popup(nb_case);
+            int type = wichType(nb_case);
+
             if (type == 1){
                 System.out.println("Le joueur" + JoueurX.getName() + " est sur une compagnie");
                 for (int i = 0; i<list_compagnies.size(); i++){
@@ -199,7 +199,10 @@ public class TourDeJeu {
                         if(compagnie.getEnable() == false){
                             fairePayerCompagnies(compagnie, JoueurX, de);
                         }
-                        else JoueurX.acheter(compagnie);
+                        else{
+                            popup_action.achat_terrain_popup(nb_case);
+                            JoueurX.acheter(compagnie);
+                        }
                     }
                 }
             }
@@ -212,7 +215,10 @@ public class TourDeJeu {
                         if (gare.getEnable() == false){
                             fairePayerGares(gare, JoueurX);
                         }
-                        else JoueurX.acheter(gare);
+                        else{
+                            popup_action.achat_terrain_popup(nb_case);
+                            JoueurX.acheter(gare);
+                        }
                     }
                 }
             }
@@ -225,7 +231,10 @@ public class TourDeJeu {
                         if (rue.getEnable() == false){
                             fairePayerRue(rue, JoueurX);
                         }
-                        else JoueurX.acheter(rue);
+                        else{
+                            popup_action.achat_terrain_popup(nb_case);
+                            JoueurX.acheter(rue);
+                        }
                     }
                 }
             }
@@ -235,6 +244,24 @@ public class TourDeJeu {
         //
         // /!\ faire 2 tableau contenant le numéros des cases maions et les cases evenments
 
+    }
+
+
+    private int wichType (int nb_case){
+
+        int check = 0;
+
+        if (nb_case == 12 || nb_case == 28){
+            check = 1;
+        }
+        else if (nb_case == 5 || nb_case == 15 || nb_case == 25 || nb_case == 35){
+            check = 2;
+        }
+        else{
+            check = 3;
+        }
+
+        return check;
     }
 
     public void fairePayerGares(Gares gare_actuel, Joueur JoueurX){
@@ -375,6 +402,14 @@ public class TourDeJeu {
         Joueur2.acheter((list_rues.get(2)));
         Joueur2.acheter((list_rues.get(3)));
         Joueur2.acheter((list_rues.get(4)));
+        Joueur2.acheter((list_rues.get(5)));
+        Joueur2.acheter((list_rues.get(6)));
+        Joueur2.acheter((list_rues.get(7)));
+        Joueur2.acheter((list_rues.get(8)));
+        Joueur2.acheter((list_rues.get(9)));
+        Joueur2.acheter((list_rues.get(10)));
+        Joueur2.acheter((list_rues.get(11)));
+        Joueur2.acheter((list_rues.get(12)));
 
         while (win == FALSE){
 
