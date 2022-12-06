@@ -8,6 +8,7 @@ import fr.eseo.bachelor.starfox.affichage.Terrain_Popup;
 import fr.eseo.bachelor.starfox.cases.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -431,8 +432,9 @@ public class TourDeJeu {
         HBox stage = new HBox();
         VBox vbox1 = new VBox();
         VBox vbox2 = new VBox();
+        Button rollDices = new Button("DICEEEEEES");
 
-        vbox1.getChildren().addAll(plateau.user_space(Joueur1, joueur_actuel),plateau.user_space(Joueur4, joueur_actuel));
+        vbox1.getChildren().addAll(rollDices, plateau.user_space(Joueur1, joueur_actuel),plateau.user_space(Joueur4, joueur_actuel));
         vbox2.getChildren().addAll(plateau.user_space(Joueur2, joueur_actuel),plateau.user_space(Joueur3, joueur_actuel));
         stage.getChildren().addAll(vbox1,plateau.getPlateau(Joueur1, Joueur2, Joueur3, Joueur4),vbox2);
 

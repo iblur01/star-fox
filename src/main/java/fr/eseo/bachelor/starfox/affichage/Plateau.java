@@ -256,16 +256,20 @@ public class Plateau {
         Label l4 = new Label();
 
         if (case_actuelle == this.JA.getPosition()){
-            l1.setStyle("-fx-alignment: center; -fx-background-color: "+"#0000fe"+";");
+            if (this.JA.getEnable()){
+                l1.setStyle("-fx-alignment: center; -fx-background-color: "+"#0000fe"+";");}
         }
         if (case_actuelle == this.JB.getPosition()){
-            l2.setStyle("-fx-alignment: center; -fx-background-color: "+"#ff0101"+";");
+            if (this.JB.getEnable()){
+            l2.setStyle("-fx-alignment: center; -fx-background-color: "+"#ff0101"+";");}
         }
         if (case_actuelle == this.JC.getPosition()){
-            l3.setStyle("-fx-alignment: center; -fx-background-color: "+"#fcdd00"+";");
+            if (this.JC.getEnable()){
+            l3.setStyle("-fx-alignment: center; -fx-background-color: "+"#fcdd00"+";");}
         }
         if (case_actuelle == this.JD.getPosition()){
-            l4.setStyle("-fx-alignment: center; -fx-background-color: "+"#34623f"+";");
+            if (this.JD.getEnable()){
+            l4.setStyle("-fx-alignment: center; -fx-background-color: "+"#34623f"+";");}
         }
 
         //l3.setStyle("-fx-alignment: center; -fx-background-color: "+"#00C49A"+";");
@@ -306,30 +310,13 @@ public class Plateau {
     public VBox user_space(Joueur JoueurX, int Joueur_act){
 
         VBox space = new VBox();
+        HBox button_space = new HBox();
         System.out.println(JoueurX.getEnable());
         if (JoueurX.getEnable()){ //si le joueur est actif
-            Label name = new Label(JoueurX.getName());
+            Label name = new Label("NON INIT, move cursor here");
             Label color = new Label();
-            Label money = new Label("Money "+ Integer.toString(JoueurX.getCompte()));
-            Label position = new Label("Position " + JoueurX.getPosition());
-            Button button = new Button();
-
-            color.setMinSize(200,100);
-            color.setMaxSize(200,100);
-
-            name.setMinSize(200,100);
-            name.setMaxSize(200,100);
-
-            name.setFont(Font.font("helvetica", FontWeight.BOLD, FontPosture.REGULAR, 40));
-
-            money.setMinSize(200,100);
-            money.setMaxSize(200,100);
-
-            button.setMinSize(60,20);
-            button.setMaxSize(60,20);
-
             color.setStyle("-fx-alignment: center; -fx-background-color: "+JoueurX.getHexColor()+";");
-            space.getChildren().addAll(color,name, money, position,button);
+            space.getChildren().addAll(color,name);
             //space.setAlignment(Pos.CENTER);
 
         }
@@ -343,6 +330,7 @@ public class Plateau {
 
         space.setOnMouseMoved(event -> {
             space.getChildren().removeAll(space.getChildren());
+            button_space.getChildren().removeAll(button_space.getChildren());
 
             if (JoueurX.getEnable()){ //si le joueur est actif
                 Label name = new Label(JoueurX.getName());
@@ -350,6 +338,7 @@ public class Plateau {
                 Label money = new Label("Money "+ Integer.toString(JoueurX.getCompte()));
                 Label position = new Label("Position " + JoueurX.getPosition());
                 Button button = new Button();
+                Button player_leaving = new Button();
 
                 color.setMinSize(200,100);
                 color.setMaxSize(200,100);
@@ -365,8 +354,13 @@ public class Plateau {
                 button.setMinSize(60,20);
                 button.setMaxSize(60,20);
 
+                player_leaving.setMinSize(60,20);
+                player_leaving.setMaxSize(60,20);
+
                 color.setStyle("-fx-alignment: center; -fx-background-color: "+JoueurX.getHexColor()+";");
-                space.getChildren().addAll(color,name, money, position,button);
+                player_leaving.setOnAction(e -> JoueurX.setEnable(false));
+                button_space.getChildren().addAll(button,player_leaving );
+                space.getChildren().addAll(color,name, money, position,button_space);
                 //space.setAlignment(Pos.CENTER);
 
             }
