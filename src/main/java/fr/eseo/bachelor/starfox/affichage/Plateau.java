@@ -1,6 +1,9 @@
 package fr.eseo.bachelor.starfox.affichage;
 
 import fr.eseo.bachelor.starfox.Joueurs.Joueur;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -12,6 +15,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -48,6 +52,7 @@ public class Plateau {
 
 
         HBox root = new HBox();
+        Boolean dice_button;
         VBox vbox_gauche = new VBox();
         VBox vbox_droite = new VBox();
         VBox vbox_centre = new VBox();
@@ -57,6 +62,8 @@ public class Plateau {
         board_center.setGraphic(view);
         board_center.setMaxSize(560,560);
         board_center.setMinSize(560,560);
+
+
 
 
         root.setOnMouseMoved(event -> {
@@ -196,6 +203,7 @@ public class Plateau {
         Label l4 = new Label();
         Label l5 = new Label();
 
+
         if (nb>0){
             l1.setStyle("-fx-alignment: center; -fx-background-color: "+color+";");
         }
@@ -242,11 +250,13 @@ public class Plateau {
             l4.setMinSize(DELTA_LABEL,HEIGHT_BOX/5);
             l5.setMaxSize(DELTA_LABEL,HEIGHT_BOX/5);
             l5.setMinSize(DELTA_LABEL,HEIGHT_BOX/5);
-            
+
             jauge.getChildren().addAll(l1, l2, l3, l4, l5);
-            
+
             return jauge;
         }
+
+
     }
 
     private Node emplacementJ(int orientation, int case_actuelle){
@@ -328,48 +338,53 @@ public class Plateau {
         space.setMinSize(200,500);
         space.setMaxSize(200,500);
 
-        space.setOnMouseMoved(event -> {
-            space.getChildren().removeAll(space.getChildren());
-            button_space.getChildren().removeAll(button_space.getChildren());
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.millis(500),
+                ae ->{
+                    space.getChildren().removeAll(space.getChildren());
+                    button_space.getChildren().removeAll(button_space.getChildren());
 
-            if (JoueurX.getEnable()){ //si le joueur est actif
-                Label name = new Label(JoueurX.getName());
-                Label color = new Label();
-                Label money = new Label("Money "+ Integer.toString(JoueurX.getCompte()));
-                Label position = new Label("Position " + JoueurX.getPosition());
-                Button button = new Button();
-                Button player_leaving = new Button();
+                    if (JoueurX.getEnable()){ //si le joueur est actif
+                        Label name = new Label(JoueurX.getName());
+                        Label color = new Label();
+                        Label money = new Label("Money "+ Integer.toString(JoueurX.getCompte()));
+                        Label position = new Label("Position " + JoueurX.getPosition());
+                        Button button = new Button();
+                        Button player_leaving = new Button();
 
-                color.setMinSize(200,100);
-                color.setMaxSize(200,100);
+                        color.setMinSize(200,100);
+                        color.setMaxSize(200,100);
 
-                name.setMinSize(200,100);
-                name.setMaxSize(200,100);
+                        name.setMinSize(200,100);
+                        name.setMaxSize(200,100);
 
-                name.setFont(Font.font("helvetica", FontWeight.BOLD, FontPosture.REGULAR, 40));
+                        name.setFont(Font.font("helvetica", FontWeight.BOLD, FontPosture.REGULAR, 40));
 
-                money.setMinSize(200,100);
-                money.setMaxSize(200,100);
+                        money.setMinSize(200,100);
+                        money.setMaxSize(200,100);
 
-                button.setMinSize(60,20);
-                button.setMaxSize(60,20);
+                        button.setMinSize(60,20);
+                        button.setMaxSize(60,20);
 
-                player_leaving.setMinSize(60,20);
-                player_leaving.setMaxSize(60,20);
+                        player_leaving.setMinSize(60,20);
+                        player_leaving.setMaxSize(60,20);
 
-                color.setStyle("-fx-alignment: center; -fx-background-color: "+JoueurX.getHexColor()+";");
-                player_leaving.setOnAction(e -> JoueurX.setEnable(false));
-                button_space.getChildren().addAll(button,player_leaving );
-                space.getChildren().addAll(color,name, money, position,button_space);
-                //space.setAlignment(Pos.CENTER);
+                        color.setStyle("-fx-alignment: center; -fx-background-color: "+JoueurX.getHexColor()+";");
+                        player_leaving.setOnAction(e -> JoueurX.setEnable(false));
+                        button_space.getChildren().addAll(button,player_leaving );
+                        space.getChildren().addAll(color,name, money, position,button_space);
 
-            }
-            else{
-                Label not_player = new Label("This player is inactive");
-                space.getChildren().addAll(not_player);
-            }
+                    }
+                    else{
+                        Label not_player = new Label("This player is inactive");
+                        Button reborn_debug = new Button("REBORN DEBUG");
+                        reborn_debug.setOnAction(e -> JoueurX.setEnable(true));
+                        space.getChildren().addAll(not_player, reborn_debug);
+                    }
+                }));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
 
-        });
         return space;
     }
 
