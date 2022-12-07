@@ -15,6 +15,7 @@ public class Compte_bancaire {
 
     public void retirer_argent(int dette) {
         argent = argent - dette;
+        if (argent < 0) argent = 0;
     }
     public void ajouter_argent(int gain) {
         argent = argent + gain;

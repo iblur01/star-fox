@@ -1,6 +1,8 @@
 package fr.eseo.bachelor.starfox.affichage;
 
 import fr.eseo.bachelor.starfox.Joueurs.Joueur;
+import fr.eseo.bachelor.starfox.cases.Logic_Plateau;
+import fr.eseo.bachelor.starfox.cases.Rues;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -25,6 +27,8 @@ import java.util.Optional;
 
 
 public class Plateau {
+
+    private Logic_Plateau plateau = new Logic_Plateau();
     ArrayList<Integer>  emplacement = new ArrayList<>();
     private final int WIDTH_BOX = 120;
     private final int HEIGHT_BOX = 70;
@@ -402,6 +406,19 @@ public class Plateau {
         timeline.play();
 
         return space;
+    }
+
+    public ArrayList<Integer> listJoueur_Nmbrmaison(Rues rue){
+        ArrayList <Integer> list = new ArrayList<>();
+
+        list.add(rue.getProprietaire());
+        list.add(rue.getNmbr_maison());
+
+        return  list;
+    }
+
+    public Logic_Plateau getLogicPlateau(){
+        return plateau;
     }
 
 }

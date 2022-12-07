@@ -26,15 +26,15 @@ import static java.lang.Boolean.TRUE;
 
 public class TourDeJeu {
 
-    private Plateau plateau = new Plateau();
-    private Logic_Plateau logic_plateau =  new Logic_Plateau();
+    public Plateau plateau = new Plateau(); //besoin pour PLateau
+    private Logic_Plateau logic_plateau =  plateau.getLogicPlateau();
     private ArrayList<Compagnies> list_compagnies = logic_plateau.getCompagnies();
     private ArrayList<Gares> list_gares = logic_plateau.getGares();
     private ArrayList<Rues> list_rues = logic_plateau.getRues();
     private Chance logic_chance = new Chance();
     private Communaute logic_communaute = new Communaute();
     private int joueur_actuel;
-    private int nb_max_j;
+    private int maison = 32;
 
     private  Boolean dice_button = false;
 
@@ -203,12 +203,13 @@ public class TourDeJeu {
                         if(compagnie.getEnable() == false){
                             fairePayerCompagnies(compagnie, JoueurX, de);
                         }
-                        else{
+                        else {
                             state = popup_action.achat_terrain_popup(nb_case);
                             if (state == true){
                                 JoueurX.acheter(compagnie);
                             }
                         }
+
                     }
                 }
             }
@@ -234,21 +235,21 @@ public class TourDeJeu {
             else if (type == 3){
                 for (int k = 0; k<list_rues.size(); k++){
                     rue = list_rues.get(k);
-                    if (rue.getEmplacement() == nb_case){
-                        if (rue.getEnable() == false){
+                    if (rue.getEmplacement() == nb_case) {
+                        if (rue.getEnable() == false) {
                             fairePayerRue(rue, JoueurX);
-                        }
-                        else{
+                        } else {
                             state = popup_action.achat_terrain_popup(nb_case);
-                            if (state == true){
+                            if (state == true) {
                                 JoueurX.acheter(rue);
                             }
                         }
+                        /*if (maison > 0){
+
+                        }*/
                     }
                 }
             }
-
-            //fonction vendre ok pour joueur mais faire logique ici !!
         }
     }
 

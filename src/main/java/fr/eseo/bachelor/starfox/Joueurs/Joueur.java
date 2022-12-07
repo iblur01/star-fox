@@ -78,29 +78,35 @@ public class Joueur {
 
     //Action du joueur
     public void acheter (Rues rue){
-        list_rue.add(rue);
-        compte.retirer_argent(rue.getVal_achat());
-        rue.setEnable(false);
-        rue.setProprietaire(num_joueur);
+        if (compte.voir_argent() > 0) {
+            list_rue.add(rue);
+            compte.retirer_argent(rue.getVal_achat());
+            rue.setEnable(false);
+            rue.setProprietaire(num_joueur);
+        }
         System.out.println("Le joueur" + getName() + " achete la rue " + rue.getName());
     }
     public void acheter (Gares gare){
+        if (compte.voir_argent() > 0) {
             list_gare.add(gare);
             compte.retirer_argent(gare.getVal_achat());
             gare.setEnable(false);
             gare.setProprietaire(num_joueur);
+        }
             System.out.println("Le joueur" + getName() + " achete la gare " + gare.getName());
     }
     public void acheter (Compagnies compagnie){
-        list_compagnie.add(compagnie);
-        compte.retirer_argent(compagnie.getVal_achat());
-        compagnie.setEnable(false);
-        compagnie.setProprietaire(num_joueur);
+        if (compte.voir_argent() > 0) {
+            list_compagnie.add(compagnie);
+            compte.retirer_argent(compagnie.getVal_achat());
+            compagnie.setEnable(false);
+            compagnie.setProprietaire(num_joueur);
+        }
         System.out.println("Le joueur" + getName() + " achete la compagnie " + compagnie.getName());
     }
     public void acheter_maison(Rues rue) {
 
-        if (compte.voir_argent() < 0){
+        if (compte.voir_argent() > 0){
             rue.setNmbr_maison(rue.getNmbr_maison() + 1);
             compte.retirer_argent(rue.getPrix_maison());
         }
@@ -121,12 +127,7 @@ public class Joueur {
         return num;
     }
     public void avancer(int de){
-        //System.out.println(position_joueur);
         position_joueur = position_joueur + de ;
-
-        //System.out.println(position_joueur);
-
-        //return position_joueur;
     }
 
 
