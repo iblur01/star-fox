@@ -70,6 +70,7 @@ public class Rues extends Terrains {
     public void setCouleur (int couleur){
         this.couleur = couleur;
     }
+    public void setNmbr_maison(int nmbr_maison) { this.nmbr_maison = nmbr_maison; }
     //
 
     //Getteur

@@ -25,6 +25,7 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 public class TourDeJeu {
+
     private Plateau plateau = new Plateau();
     private Logic_Plateau logic_plateau =  new Logic_Plateau();
     private ArrayList<Compagnies> list_compagnies = logic_plateau.getCompagnies();
@@ -159,6 +160,7 @@ public class TourDeJeu {
         Gares gare;
         Rues  rue;
 
+        boolean state = false;
         //
 
 
@@ -202,8 +204,10 @@ public class TourDeJeu {
                             fairePayerCompagnies(compagnie, JoueurX, de);
                         }
                         else{
-                            popup_action.achat_terrain_popup(nb_case);
-                            JoueurX.acheter(compagnie);
+                            state = popup_action.achat_terrain_popup(nb_case);
+                            if (state == true){
+                                JoueurX.acheter(compagnie);
+                            }
                         }
                     }
                 }
@@ -218,8 +222,10 @@ public class TourDeJeu {
                             fairePayerGares(gare, JoueurX);
                         }
                         else{
-                            popup_action.achat_terrain_popup(nb_case);
-                            JoueurX.acheter(gare);
+                            state = popup_action.achat_terrain_popup(nb_case);
+                            if (state == true){
+                                JoueurX.acheter(gare);
+                            }
                         }
                     }
                 }
@@ -233,18 +239,17 @@ public class TourDeJeu {
                             fairePayerRue(rue, JoueurX);
                         }
                         else{
-                            popup_action.achat_terrain_popup(nb_case);
-                            JoueurX.acheter(rue);
+                            state = popup_action.achat_terrain_popup(nb_case);
+                            if (state == true){
+                                JoueurX.acheter(rue);
+                            }
                         }
                     }
                 }
             }
-            //else if (type == 0) System.out.println("ERROR !");
+
+            //fonction vendre ok pour joueur mais faire logique ici !!
         }
-
-        //
-        // /!\ faire 2 tableau contenant le numéros des cases maions et les cases evenments
-
     }
 
     private int fonctionPuissance(int base, int exponent) {
@@ -254,7 +259,6 @@ public class TourDeJeu {
         }
         return result;
     }
-
     private int wichType (int nb_case){
 
         int check = 0;
@@ -271,6 +275,7 @@ public class TourDeJeu {
 
         return check;
     }
+
 
     private void fairePayerGares(Gares gare_actuel, Joueur JoueurX){
         int montant = 0;
@@ -420,17 +425,6 @@ public class TourDeJeu {
         boolean win = FALSE;
 
         int tour = 0;
-
-        Joueur2.acheter(list_gares.get(0));
-        Joueur2.acheter(list_gares.get(1));
-        Joueur2.acheter(list_gares.get(2));
-        Joueur2.acheter(list_gares.get(3));
-
-        Joueur2.acheter((list_rues.get(0)));
-        Joueur2.acheter((list_rues.get(1)));
-
-        Joueur2.acheter(list_compagnies.get(0));
-        Joueur2.acheter(list_compagnies.get(1));
 
 
         while (win == FALSE){

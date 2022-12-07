@@ -105,7 +105,7 @@ public class Terrain_Popup {
 
     }
 
-    public int achat_terrain_popup(int emplacement){
+    public boolean achat_terrain_popup(int emplacement){
 
         this.generation_terrain();
         this.generation_hotel();
@@ -117,7 +117,7 @@ public class Terrain_Popup {
         this.generation_maison4();
         this.generation_hypotheque();
 
-        int check = 0;
+        boolean check = false;
 
         if (emplacement == 12 || emplacement == 28)
         {
@@ -138,7 +138,7 @@ public class Terrain_Popup {
                 dialogC.setContentText("Voulez-vous acheter ce terrain ?");
                 Optional<ButtonType> answer = dialogC.showAndWait();
                 if(answer.get() == ButtonType.OK) {
-                    check = 1;
+                    check = true;
                 } else {
 
                 }
@@ -160,7 +160,7 @@ public class Terrain_Popup {
             Optional<ButtonType> answer = dialogC.showAndWait();
             if(answer.get() == ButtonType.OK) {
                 //fonction.acheter gare();
-                check = 2;
+                check = true;
             } else {
 
             }
@@ -195,7 +195,7 @@ public class Terrain_Popup {
             Optional<ButtonType> answer = dialogC.showAndWait();
             if(answer.get() == ButtonType.OK) {
                 //fonction.acheter();
-                check = 3;
+                check = true;
             } else {
 
             }
