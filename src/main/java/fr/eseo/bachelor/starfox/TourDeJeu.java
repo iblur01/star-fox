@@ -415,11 +415,7 @@ public class TourDeJeu {
         return stage;
 
     }
-
-
-
-
-    public void test_game(int nb_j){
+    public void test_game(){
 
         boolean win = FALSE;
 
@@ -439,25 +435,14 @@ public class TourDeJeu {
 
         while (win == FALSE){
 
+        }
+            while (dice_button == FALSE){
+            }
+            System.out.println("OUI");
+            dice_button = FALSE;
+            while (dice_button == FALSE){
+            }
 
-
-
-            /*rollDices.setOnAction(event -> {
-                TDJ(Joueur1);
-            });
-
-            rollDices.setOnAction(event -> {
-                TDJ(Joueur2);
-            });*/
-
-            System.out.println("Compte : " + Joueur1.getCompte());
-            TDJ(Joueur1);
-            System.out.println("Compte : " + Joueur1.getCompte());
-
-            System.out.println("\nTour numero " + tour + ".");
-
-
-            tour ++;
 
             if (Joueur1.getEnable() == FALSE && Joueur2.getEnable() == FALSE && Joueur3.getEnable() == FALSE && Joueur4.getEnable() == TRUE) {
                 win = TRUE;
@@ -483,6 +468,7 @@ public class TourDeJeu {
             else {
                 win = FALSE;
             }
-        }
+    }
 
-}}
+
+}

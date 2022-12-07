@@ -6,7 +6,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,6 +21,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Optional;
 
 
 public class Plateau {
@@ -322,7 +325,6 @@ public class Plateau {
 
         VBox space = new VBox();
         HBox button_space = new HBox();
-        System.out.println(JoueurX.getEnable());
         if (JoueurX.getEnable()){ //si le joueur est actif
             Label name = new Label("NON INIT, move cursor here");
             Label color = new Label();
@@ -371,7 +373,20 @@ public class Plateau {
                         player_leaving.setMaxSize(60,20);
 
                         color.setStyle("-fx-alignment: center; -fx-background-color: "+JoueurX.getHexColor()+";");
-                        player_leaving.setOnAction(e -> JoueurX.setEnable(false));
+                        player_leaving.setOnAction(e -> {
+
+                            Alert dialogC = new Alert(Alert.AlertType.CONFIRMATION);
+                            dialogC.setTitle("ABANDON ?");
+                            dialogC.setHeaderText(null);
+                            dialogC.setContentText("Voulez-vous vraiment abandonner ?");
+                            Optional<ButtonType> answer = dialogC.showAndWait();
+                            if(answer.get() == ButtonType.OK) {
+                                JoueurX.setEnable(false);
+                            } else {
+
+                            }
+
+                        });
                         button_space.getChildren().addAll(button,player_leaving );
                         space.getChildren().addAll(color,name, money, position,button_space);
 
