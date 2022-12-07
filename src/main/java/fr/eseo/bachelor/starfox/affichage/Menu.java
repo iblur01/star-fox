@@ -72,8 +72,11 @@ public class Menu {
 
 
         SceneTwo = TDJ.setPlateau();
+
         SceneTwo.setOnMouseMoved(event -> SceneTwo = TDJ.setPlateau());
         Scene scene2 = new Scene(SceneTwo, WIDTH, HEIGHT);
+
+
 
 
 

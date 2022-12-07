@@ -162,10 +162,12 @@ public class TourDeJeu {
 
         if (nb_case == 0 || nb_case == 4 || nb_case == 38){
             JoueurX.event();
+            System.out.println("Le joueur" + JoueurX.getName() + " est sur une case event");
         }
 
         else if (nb_case == 10){
             JoueurX.setPosition(50);
+            System.out.println("Le joueur" + JoueurX.getName() + " est sur la prison");
         }
 
         else if (nb_case == 7 || nb_case == 22 || nb_case == 36){ //case chance
@@ -173,6 +175,7 @@ public class TourDeJeu {
             int num_carte =  0 + random.nextInt(15-0);
             popup_chance.afficher_popup(num_carte);
             logic_chance.action_carte(num_carte, JoueurX);
+            System.out.println("Le joueur" + JoueurX.getName() + " est sur une case chance");
         }
 
         else if (nb_case == 2 || nb_case == 17 || nb_case == 33) { //case communaute
@@ -180,12 +183,14 @@ public class TourDeJeu {
             int num_carte =  0 + random.nextInt(15-0);
             popup_commu.afficher_popup(nb_case);
             logic_communaute.action_carte(num_carte, JoueurX);
+            System.out.println("Le joueur" + JoueurX.getName() + " est sur une case communaute");
         }
         //
         else {
             int type = wichType(nb_case);
 
             if (type == 1){
+                System.out.println("Le joueur" + JoueurX.getName() + " est sur une compagnie");
                 for (int i = 0; i<list_compagnies.size(); i++){
                     compagnie = list_compagnies.get(i);
                     if (compagnie.getEmplacement() == nb_case){
@@ -201,6 +206,7 @@ public class TourDeJeu {
             }
 
             else if (type == 2){
+                System.out.println("Le joueur" + JoueurX.getName() + " est sur une gare");
                 for (int j = 0; j<list_gares.size(); j++){
                     gare = list_gares.get(j);
                     if (gare.getEmplacement() == nb_case){
@@ -267,6 +273,7 @@ public class TourDeJeu {
 
         montant = cmb_gare(gare_actuel);
         if (gare_actuel.getProprietaire() == 1){
+
             Joueur1.recevoir(montant);
         }
         else if (gare_actuel.getProprietaire() == 2){
@@ -279,6 +286,7 @@ public class TourDeJeu {
             Joueur4.recevoir(montant);
         }
 
+        System.out.println("Le joueur " + JoueurX.getName() + " doit payer " + montant);
         JoueurX.payer(montant);
     }
     private int cmb_gare (Gares gare_actuel){
@@ -385,11 +393,39 @@ public class TourDeJeu {
         return apayer;
     }
 
+    public HBox setPlateau(){
+
+        int dice_joueur = 0;
+
+        HBox stage = new HBox();
+        VBox vbox1 = new VBox();
+        VBox vbox2 = new VBox();
+        Button rollDices = new Button("DICEEEEEES");
+
+
+
+
+
+        vbox1.getChildren().addAll(rollDices, plateau.user_space(Joueur1, joueur_actuel),plateau.user_space(Joueur4, joueur_actuel));
+        vbox2.getChildren().addAll(plateau.user_space(Joueur2, joueur_actuel),plateau.user_space(Joueur3, joueur_actuel));
+        stage.getChildren().addAll(vbox1,plateau.getPlateau(Joueur1, Joueur2, Joueur3, Joueur4),vbox2);
+
+        return stage;
+
+    }
+
+
+
 
     public void test_game(int nb_j){
 
         boolean win = FALSE;
+
         int tour = 0;
+
+
+
+
 
         Joueur2.acheter(list_gares.get(0));
         Joueur2.acheter(list_gares.get(1));
@@ -405,32 +441,56 @@ public class TourDeJeu {
 
         while (win == FALSE){
 
+
+
+
+            /*rollDices.setOnAction(event -> {
+                TDJ(Joueur1);
+            });
+
+            rollDices.setOnAction(event -> {
+                TDJ(Joueur2);
+            });*/
+
             System.out.println("Compte : " + Joueur1.getCompte());
             TDJ(Joueur1);
             System.out.println("Compte : " + Joueur1.getCompte());
 
-            System.out.println("\nTour numero" + tour + ".");
+            System.out.println("\nTour numero " + tour + ".");
+
+
             tour ++;
 
+            if (Joueur1.getEnable() == FALSE && Joueur2.getEnable() == FALSE && Joueur3.getEnable() == FALSE && Joueur4.getEnable() == TRUE) {
+                win = TRUE;
+                System.out.println("\nLe joueur numéro 4 à gagné !");
+
+            }
+            else if (Joueur1.getEnable() == TRUE && Joueur2.getEnable() == FALSE && Joueur3.getEnable() == FALSE && Joueur4.getEnable() == FALSE) {
+                win = TRUE;
+                System.out.println("\nLe joueur numéro 1 à gagné !");
             if (tour == 1) win = TRUE;
+
+            }
+            else if (Joueur1.getEnable() == FALSE && Joueur2.getEnable() == TRUE && Joueur3.getEnable() == FALSE && Joueur4.getEnable() == FALSE) {
+                win = TRUE;
+                System.out.println("\nLe joueur numéro 2 à gagné !");
+
+            }
+            else if (Joueur1.getEnable() == FALSE && Joueur2.getEnable() == FALSE && Joueur3.getEnable() == TRUE && Joueur4.getEnable() == FALSE) {
+                win = TRUE;
+                System.out.println("\nLe joueur numéro 3 à gagné !");
+
+            }
+            else {
+                win = FALSE;
+            }
         }
 
 
 
-    }
 
 
-    public HBox setPlateau(){
-        HBox stage = new HBox();
-        VBox vbox1 = new VBox();
-        VBox vbox2 = new VBox();
-
-
-        vbox1.getChildren().addAll(rollDices, plateau.user_space(Joueur1, joueur_actuel),plateau.user_space(Joueur4, joueur_actuel));
-        vbox2.getChildren().addAll(plateau.user_space(Joueur2, joueur_actuel),plateau.user_space(Joueur3, joueur_actuel));
-        stage.getChildren().addAll(vbox1,plateau.getPlateau(Joueur1, Joueur2, Joueur3, Joueur4),vbox2);
-
-        return stage;
 
     }
 
