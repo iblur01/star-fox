@@ -404,11 +404,13 @@ public class TourDeJeu {
         HBox stage = new HBox();
         VBox vbox1 = new VBox();
         VBox vbox2 = new VBox();
-        Button rollDices = new Button("DICEEEEEES");
-
-
-
-
+        rollDices.setOnAction(e -> {
+            dice_button = true;
+            Timeline timeline = new Timeline(new KeyFrame(
+                    Duration.millis(2500),
+                    ae -> dice_button = false));
+            timeline.play();
+        });
 
         vbox1.getChildren().addAll(rollDices, plateau.user_space(Joueur1, joueur_actuel),plateau.user_space(Joueur4, joueur_actuel));
         vbox2.getChildren().addAll(plateau.user_space(Joueur2, joueur_actuel),plateau.user_space(Joueur3, joueur_actuel));
@@ -491,22 +493,4 @@ public class TourDeJeu {
             }
         }
 
-
-    public HBox setPlateau(){
-        HBox stage = new HBox();
-        VBox vbox1 = new VBox();
-        VBox vbox2 = new VBox();
-        rollDices.setOnAction(e -> {
-            dice_button = true;
-            Timeline timeline = new Timeline(new KeyFrame(
-                    Duration.millis(2500),
-                    ae -> dice_button = false));
-            timeline.play();
-        });
-
-
-
-
-    }
-
-}
+}}
