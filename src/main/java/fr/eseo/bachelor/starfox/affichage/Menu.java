@@ -77,10 +77,6 @@ public class Menu {
         Scene scene2 = new Scene(SceneTwo, WIDTH, HEIGHT);
 
 
-
-
-
-
         stage.setScene(scene2);
         root = new GridPane();
         root.setStyle("-fx-background-color:lightblue");
@@ -231,7 +227,7 @@ public class Menu {
                 TDJ.init_TDJ(nombre_joueur, inputJ1.getText(),inputJ2.getText(),inputJ3.getText(),inputJ4.getText());
                 stage.setScene(scene2);
 
-                TDJ.test_game(nombre_joueur);
+                //TDJ.test_game(nombre_joueur);
 
 
             }

@@ -34,8 +34,8 @@ public class TourDeJeu {
     private Communaute logic_communaute = new Communaute();
     private int joueur_actuel;
     private int nb_max_j;
-    private Button rollDices = new Button("DICEEEEEES");
-    private  Boolean dice_button;
+
+    private  Boolean dice_button = false;
 
 
     Joueur Joueur1 = new Joueur("Joueur1","#0000fe", 1);
@@ -399,22 +399,18 @@ public class TourDeJeu {
 
     public HBox setPlateau(){
 
-        int dice_joueur = 0;
-
         HBox stage = new HBox();
         VBox vbox1 = new VBox();
         VBox vbox2 = new VBox();
-        rollDices.setOnAction(e -> {
+
+        Button rollDices = new Button("DICEEEEEES");
+        rollDices.setOnAction(event -> {
             dice_button = true;
-            Timeline timeline = new Timeline(new KeyFrame(
-                    Duration.millis(2500),
-                    ae -> dice_button = false));
-            timeline.play();
         });
 
-        vbox1.getChildren().addAll(rollDices, plateau.user_space(Joueur1, joueur_actuel),plateau.user_space(Joueur4, joueur_actuel));
+        vbox1.getChildren().addAll(plateau.user_space(Joueur1, joueur_actuel),plateau.user_space(Joueur4, joueur_actuel));
         vbox2.getChildren().addAll(plateau.user_space(Joueur2, joueur_actuel),plateau.user_space(Joueur3, joueur_actuel));
-        stage.getChildren().addAll(vbox1,plateau.getPlateau(Joueur1, Joueur2, Joueur3, Joueur4),vbox2);
+        stage.getChildren().addAll(rollDices,vbox1,plateau.getPlateau(Joueur1, Joueur2, Joueur3, Joueur4),vbox2);
 
         return stage;
 
@@ -428,10 +424,6 @@ public class TourDeJeu {
         boolean win = FALSE;
 
         int tour = 0;
-
-
-
-
 
         Joueur2.acheter(list_gares.get(0));
         Joueur2.acheter(list_gares.get(1));
