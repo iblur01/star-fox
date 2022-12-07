@@ -31,6 +31,7 @@ public class TourDeJeu {
     private Communaute logic_communaute = new Communaute();
     private int joueur_actuel;
     private int nb_max_j;
+    private Button rollDices = new Button("DICEEEEEES");
 
 
     Joueur Joueur1 = new Joueur("Joueur1","#0000fe", 1);
@@ -102,10 +103,6 @@ public class TourDeJeu {
         popup.setContentText("Vous avez " + joueurX.getCompte() + ".");
         popup.showAndWait();
     }
-
-
-
-
 
     private void TDJ (Joueur JoueurX){
 
@@ -427,7 +424,7 @@ public class TourDeJeu {
         HBox stage = new HBox();
         VBox vbox1 = new VBox();
         VBox vbox2 = new VBox();
-        Button rollDices = new Button("DICEEEEEES");
+
 
         vbox1.getChildren().addAll(rollDices, plateau.user_space(Joueur1, joueur_actuel),plateau.user_space(Joueur4, joueur_actuel));
         vbox2.getChildren().addAll(plateau.user_space(Joueur2, joueur_actuel),plateau.user_space(Joueur3, joueur_actuel));

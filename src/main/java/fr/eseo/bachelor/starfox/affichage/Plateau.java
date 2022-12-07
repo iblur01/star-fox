@@ -30,6 +30,7 @@ public class Plateau {
     private Joueur JB;
     private Joueur JC;
     private Joueur JD;
+    public  Boolean dice_button;
 
     /**
      * Generation du plateau complet.
@@ -52,7 +53,7 @@ public class Plateau {
 
 
         HBox root = new HBox();
-        Boolean dice_button;
+
         VBox vbox_gauche = new VBox();
         VBox vbox_droite = new VBox();
         VBox vbox_centre = new VBox();
@@ -350,7 +351,7 @@ public class Plateau {
                         Label money = new Label("Money "+ Integer.toString(JoueurX.getCompte()));
                         Label position = new Label("Position " + JoueurX.getPosition());
                         Button button = new Button();
-                        Button player_leaving = new Button();
+                        Button player_leaving = new Button("LEAVING");
 
                         color.setMinSize(200,100);
                         color.setMaxSize(200,100);
