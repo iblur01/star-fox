@@ -30,7 +30,7 @@ public class Plateau {
     private Joueur JB;
     private Joueur JC;
     private Joueur JD;
-    public  Boolean dice_button;
+
 
     /**
      * Generation du plateau complet.

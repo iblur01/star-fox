@@ -6,6 +6,8 @@ import fr.eseo.bachelor.starfox.affichage.Commu_Popup;
 import fr.eseo.bachelor.starfox.affichage.Plateau;
 import fr.eseo.bachelor.starfox.affichage.Terrain_Popup;
 import fr.eseo.bachelor.starfox.cases.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -13,6 +15,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,6 +35,7 @@ public class TourDeJeu {
     private int joueur_actuel;
     private int nb_max_j;
     private Button rollDices = new Button("DICEEEEEES");
+    private  Boolean dice_button;
 
 
     Joueur Joueur1 = new Joueur("Joueur1","#0000fe", 1);
@@ -488,6 +492,17 @@ public class TourDeJeu {
         }
 
 
+    public HBox setPlateau(){
+        HBox stage = new HBox();
+        VBox vbox1 = new VBox();
+        VBox vbox2 = new VBox();
+        rollDices.setOnAction(e -> {
+            dice_button = true;
+            Timeline timeline = new Timeline(new KeyFrame(
+                    Duration.millis(2500),
+                    ae -> dice_button = false));
+            timeline.play();
+        });
 
 
 
